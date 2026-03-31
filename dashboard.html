@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard | Handmade Soap & Skincare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#121212', card: '#1E1E1E', text: '#F5F5F5' } },
+                    fontFamily: { premium: ['Playfair Display', 'serif'], body: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .sidebar {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 300px;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                position: fixed;
+                left: -300px;
+                z-index: 200;
+                height: 100vh;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+        }
+
+        .sidebar-link.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-white dark:bg-dark-bg text-gray-800 dark:text-dark-text font-body transition-colors duration-300 overflow-hidden">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Sidebar -->
+        <aside
+            class="sidebar bg-secondary/50 dark:bg-dark-card border-r border-gray-100 dark:border-gray-800 flex flex-col p-8">
+            <div class="mb-16 flex justify-between items-center lg:block">
+                <a href="index.html" class="flex items-center space-x-2"><span
+                        class="text-primary text-2xl">🌱</span><span
+                        class="font-premium font-bold text-xl uppercase">Handmade Soap</span></a>
+                <button id="close-sidebar-btn"
+                    class="lg:hidden p-2 rounded-full bg-gray-100 dark:bg-dark-bg transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex-1 space-y-2">
+                <a href="#" data-target="panel-orders"
+                    class="sidebar-link active block p-4 rounded-3xl font-bold flex items-center space-x-4 transition-all"><span>📦</span><span>Orders
+                        History</span></a>
+                <a href="#" data-target="panel-subscription"
+                    class="sidebar-link block p-4 rounded-3xl font-bold flex items-center space-x-4 transition-all"><span>🧴</span><span>My
+                        Subscription</span></a>
+                <a href="#" data-target="panel-profile"
+                    class="sidebar-link block p-4 rounded-3xl font-bold flex items-center space-x-4 transition-all"><span>👤</span><span>Profile
+                        Settings</span></a>
+                <a href="index.html"
+                    class="sidebar-link block p-4 rounded-3xl font-bold flex items-center space-x-4 transition-all text-red-400 hover:bg-red-50"><span>🚪</span><span>Logout</span></a>
+            </nav>
+
+            <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 space-y-2 font-body">
+                <button id="rtl-toggle"
+                    class="w-full p-3 rounded-2xl bg-white dark:bg-dark-bg shadow-sm border border-gray-100 dark:border-gray-800 flex items-center justify-between hover:bg-primary/5 transition-all group scale-90 origin-left">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-xl">🌐</span>
+                        <span class="font-bold text-sm">RTL</span>
+                    </div>
+                    <div
+                        class="w-10 h-5 bg-gray-200 dark:bg-dark-card rounded-full relative transition-colors group-[.active]:bg-primary">
+                        <div class="dot absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-all"></div>
+                    </div>
+                </button>
+
+                <button id="theme-toggle-sidebar"
+                    class="w-full p-3 rounded-2xl bg-white dark:bg-dark-bg shadow-sm border border-gray-100 dark:border-gray-800 flex items-center justify-between hover:bg-primary/5 transition-all group scale-90 origin-left">
+                    <div class="flex items-center space-x-3 text-gray-800 dark:text-white">
+                        <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <span class="font-bold text-sm">Theme</span>
+                    </div>
+                    <span
+                        class="text-[10px] uppercase font-bold text-gray-400 group-hover:text-primary transition-colors">Switch</span>
+                </button>
+            </div>
+
+            <div
+                class="mt-4 p-4 bg-white dark:bg-dark-bg rounded-[2rem] shadow-sm flex items-center space-x-4 scale-90 origin-left">
+                <div
+                    class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+                    EC
+                </div>
+                <div>
+                    <p class="font-bold text-sm">Emilia Clarson</p>
+                    <p class="text-[10px] uppercase tracking-widest text-primary font-bold">Gold Member</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto main-content">
+            <!-- Mobile Header -->
+            <header
+                class="lg:hidden p-6 bg-white dark:bg-dark-bg border-b border-gray-100 dark:border-gray-800 flex justify-between items-center sticky top-0 z-50">
+                <span class="font-bold text-primary">DASHBOARD</span>
+                <button id="dashboard-menu-btn" class="p-2 rounded-full bg-gray-100 dark:bg-dark-card">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </header>
+
+            <div class="p-8 lg:p-16">
+                <!-- Welcome Section -->
+                <div class="mb-16 scroll-animate">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome back, <span
+                            class="text-primary italic">Emilia.</span></h1>
+                    <p class="text-gray-500 font-body">Your natural ritual is scheduled for next Tuesday.</p>
+                </div>
+
+                <!-- Metrics Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 scroll-animate">
+                    <div class="bg-primary p-10 rounded-[2.5rem] text-white shadow-xl shadow-primary/20">
+                        <span class="text-sm font-bold uppercase tracking-widest opacity-80 font-body">Earned
+                            Points</span>
+                        <h3 class="text-5xl font-bold mt-4 font-premium">2,540</h3>
+                    </div>
+                    <div class="bg-secondary p-10 rounded-[2.5rem] dark:bg-dark-card">
+                        <span class="text-sm font-bold uppercase tracking-widest text-gray-500 font-body">Active
+                            Subscriptions</span>
+                        <h3 class="text-5xl font-bold mt-4 text-primary font-premium">1</h3>
+                    </div>
+                    <div class="bg-secondary p-10 rounded-[2.5rem] dark:bg-dark-card">
+                        <span class="text-sm font-bold uppercase tracking-widest text-gray-500 font-body">Bars
+                            Saved</span>
+                        <h3 class="text-5xl font-bold mt-4 text-primary font-premium">42</h3>
+                    </div>
+                </div>
+
+                <!-- Panelled Content -->
+                <div id="panel-orders" class="dashboard-panel scroll-animate space-y-8">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <h2 class="text-2xl font-bold font-premium">Recent Rituals</h2>
+                        <a href="shop.html" class="text-primary font-bold hover:underline font-body text-sm">Shop New
+                            Bars</a>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-dark-card border border-gray-100 dark:border-gray-800 rounded-[2.5rem] overflow-x-auto">
+                        <table class="w-full text-left font-body min-w-[600px]">
+                            <thead class="bg-gray-50 dark:bg-dark-bg/50 border-b border-gray-100 dark:border-gray-800">
+                                <tr>
+                                    <th class="p-8 text-xs font-bold uppercase tracking-widest text-gray-400">Order ID
+                                    </th>
+                                    <th class="p-8 text-xs font-bold uppercase tracking-widest text-gray-400">Date</th>
+                                    <th class="p-8 text-xs font-bold uppercase tracking-widest text-gray-400">Status
+                                    </th>
+                                    <th class="p-8 text-xs font-bold uppercase tracking-widest text-gray-400">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    class="border-b border-gray-50 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30 transition-colors">
+                                    <td class="p-8 font-bold">#HS-9284</td>
+                                    <td class="p-8 text-gray-500">March 24, 2026</td>
+                                    <td class="p-8"><span
+                                            class="bg-green-100 text-green-600 px-4 py-1 rounded-full text-xs font-bold">Delivered</span>
+                                    </td>
+                                    <td class="p-8 font-bold">$42.00</td>
+                                </tr>
+                                <tr
+                                    class="border-b border-gray-50 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30 transition-colors">
+                                    <td class="p-8 font-bold">#HS-9211</td>
+                                    <td class="p-8 text-gray-500">Feb 18, 2026</td>
+                                    <td class="p-8"><span
+                                            class="bg-gray-100 text-gray-500 px-4 py-1 rounded-full text-xs font-bold">Delivered</span>
+                                    </td>
+                                    <td class="p-8 font-bold">$18.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="panel-subscription" class="dashboard-panel hidden scroll-animate space-y-8">
+                    <h2 class="text-2xl font-bold font-premium">Artisan Club Membership</h2>
+                    <div
+                        class="bg-secondary/30 dark:bg-dark-card p-10 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8 border-2 border-primary font-body">
+                        <div class="flex items-center space-x-6">
+                            <div class="w-20 h-20 bg-primary/20 rounded-3xl flex items-center justify-center text-3xl">
+                                🌿</div>
+                            <div>
+                                <h4 class="font-bold text-xl">The Essential Pack</h4>
+                                <p class="text-gray-500">Next Delivery: April 14th</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <button class="bg-white dark:bg-dark-bg px-8 py-4 rounded-full font-bold shadow-sm">Pause
+                                Habit</button>
+                            <button class="btn-primary">Manage Ritual</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panel-profile" class="dashboard-panel hidden scroll-animate space-y-8">
+                    <h2 class="text-2xl font-bold font-premium">Profile Rituals</h2>
+                    <form
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white dark:bg-dark-card p-12 rounded-[3rem] border border-gray-100 dark:border-gray-800 font-body">
+                        <div class="space-y-4">
+                            <label class="text-xs uppercase font-bold text-gray-400">Full Name</label>
+                            <input type="text" value="Emilia Clarson"
+                                class="w-full bg-gray-50 dark:bg-dark-bg p-5 rounded-2xl outline-none focus:ring-2 focus:ring-primary border-none">
+                        </div>
+                        <div class="space-y-4">
+                            <label class="text-xs uppercase font-bold text-gray-400">Email Ritual</label>
+                            <input type="email" value="emilia@bloom.com"
+                                class="w-full bg-gray-50 dark:bg-dark-bg p-5 rounded-2xl outline-none focus:ring-2 focus:ring-primary border-none">
+                        </div>
+                        <button type="submit" class="btn-primary md:col-span-2 py-5 text-xl">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Dashboard Overlay -->
+    <div id="dashboard-overlay"
+        class="fixed inset-0 bg-black/60 z-[150] hidden backdrop-blur-sm lg:hidden transition-all duration-300"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login | Handmade Soap & Skincare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#101010', card: 'rgba(30,30,30,0.7)', text: '#F5F5F5' } },
+                    fontFamily: { premium: ['Playfair Display', 'serif'], body: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .auth-bg {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-bg::after {
+            content: "🌿";
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            font-size: 20rem;
+            opacity: 0.05;
+            transform: rotate(15deg);
+        }
+
+        .auth-bg::before {
+            content: "🧼";
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            font-size: 15rem;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+
+        .login-card {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateY(30px);
+            animation: authFadeIn 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        @keyframes authFadeIn {
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="auth-bg min-h-screen flex items-start justify-center p-4 py-12 transition-colors duration-500 overflow-y-auto">
+
+    <div class="absolute top-4 right-4 z-50">
+        <button id="theme-toggle"
+            class="p-3 bg-white dark:bg-dark-bg/50 backdrop-blur-md rounded-full shadow-lg hover:scale-110 transition-transform">
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:block">☀️</span>
+        </button>
+    </div>
+
+    <!-- Login Card -->
+    <div
+        class="login-card w-full max-w-lg relative z-10 glass-effect bg-white/40 dark:bg-black/30 backdrop-blur-3xl p-8 md:p-12 rounded-[3.5rem] shadow-2xl border border-white/40 dark:border-white/5 my-auto">
+        <div class="text-center mb-8">
+            <a href="index.html"
+                class="flex items-center justify-center space-x-2 text-primary mb-6 hover:scale-105 transition-transform">
+                <span class="text-3xl">🌱</span>
+                <span class="font-premium font-bold text-2xl uppercase text-gray-800 dark:text-white">Handmade
+                    Soap</span>
+            </a>
+            <h1 class="text-3xl font-bold mb-2">Welcome Home.</h1>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Continue your botanical journey.</p>
+        </div>
+
+        <form class="space-y-4">
+            <div class="space-y-1">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-primary ml-2">Email Ritual</label>
+                <input type="email" placeholder=""
+                    class="w-full bg-white/50 dark:bg-black/20 p-4 rounded-2xl outline-none border-2 border-transparent focus:border-primary transition-all text-sm">
+            </div>
+
+            <div class="space-y-1 relative">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-primary ml-2">Secret Password</label>
+                <input type="password" placeholder=""
+                    class="w-full bg-white/50 dark:bg-black/20 p-4 rounded-2xl outline-none border-2 border-transparent focus:border-primary transition-all text-sm">
+                <button type="button"
+                    class="absolute right-5 bottom-4 text-gray-400 hover:text-primary transition-colors">👁️</button>
+            </div>
+
+            <div class="flex items-center justify-between px-2 text-xs">
+                <label class="flex items-center space-x-2 cursor-pointer group">
+                    <input type="checkbox" class="w-4 h-4 accent-primary rounded-lg">
+                    <span class="text-gray-500 hover:text-primary transition-colors font-medium">Keep me logged
+                        in</span>
+                </label>
+                <a href="#" class="text-primary font-bold hover:underline">Forgot Ritual?</a>
+            </div>
+
+            <button type="submit"
+                class="btn-primary w-full py-4 text-lg font-bold shadow-xl shadow-primary/20 hover:scale-[1.01] transition-transform">Sign
+                In</button>
+
+            <div class="relative py-2 flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200/50 dark:border-white/10"></div>
+                </div>
+                <span
+                    class="relative bg-transparent px-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Or
+                    Continue With</span>
+            </div>
+
+            <button type="button"
+                class="w-full bg-white/60 dark:bg-white/10 hover:bg-white dark:hover:bg-white/20 p-4 rounded-2xl font-bold flex items-center justify-center space-x-4 transition-all border border-white/20 text-sm">
+                <svg class="w-5 h-5" viewBox="0 0 48 48">
+                    <path fill="#EA4335"
+                        d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z">
+                    </path>
+                    <path fill="#4285F4"
+                        d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z">
+                    </path>
+                    <path fill="#FBBC05"
+                        d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z">
+                    </path>
+                    <path fill="#34A853"
+                        d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z">
+                    </path>
+                </svg>
+                <span>Google Ritual</span>
+            </button>
+        </form>
+
+        <p class="mt-12 text-center text-gray-500 font-medium">
+            New here? <a href="register.html" class="text-primary font-bold hover:underline">Start your ritual</a>
+        </p>
+    </div>
+
+    <!-- Background Decoration JS-free if possible, but I used CSS above -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

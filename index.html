@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handmade Soap & Skincare Company | Natural Luxury</title>
+    <meta name="description"
+        content="Discover premium handmade soaps and skincare products crafted with natural ingredients for a calm, organic lifestyle.">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A4D39',
+                        secondary: '#FAF5EF',
+                        accent: '#A47E3B',
+                        dark: {
+                            bg: '#121212',
+                            card: '#1E1E1E',
+                            text: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        premium: ['Playfair Display', 'serif'],
+                        body: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body
+    class="bg-white dark:bg-dark-bg text-gray-800 dark:text-dark-text font-body transition-colors duration-300 overflow-x-hidden">
+
+    <!-- Header -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-primary text-2xl">🌱</span>
+                <span class="font-premium font-bold text-xl tracking-tight uppercase">Handmade Soap</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-primary transition-colors font-medium text-primary">Home</a>
+                <a href="home-2.html" class="hover:text-primary transition-colors font-medium">Home 2</a>
+                <a href="shop.html" class="hover:text-primary transition-colors font-medium">Shop</a>
+                <a href="pricing.html" class="hover:text-primary transition-colors font-medium">Pricing</a>
+                <a href="blog.html" class="hover:text-primary transition-colors font-medium">Blog</a>
+                <a href="gallery.html" class="hover:text-primary transition-colors font-medium">Gallery</a>
+                <a href="dashboard.html" class="hover:text-primary transition-colors font-medium">Dashboard</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle theme">
+                    <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
+                    </svg>
+                    <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                        </path>
+                    </svg>
+                </button>
+                <a href="register.html" class="btn-secondary py-2 text-sm">Login</a>
+                <a href="shop.html" class="btn-primary py-2 text-sm">Shop Now</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button id="menu-btn"
+                class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden"></div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer"
+        class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-dark-bg z-[70] shadow-2xl p-8 flex flex-col">
+        <div class="flex items-center justify-between mb-12">
+            <span class="font-premium font-bold text-xl uppercase">Handmade Soap</span>
+            <button id="close-btn" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-6 text-lg font-medium">
+            <a href="index.html" class="text-primary">Home</a>
+            <a href="home-2.html">Home 2</a>
+            <a href="shop.html">Shop</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="blog.html">Blog</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="dashboard.html">Dashboard</a>
+            <hr class="border-gray-100 dark:border-gray-800">
+            <a href="register.html" class="btn-secondary text-center">Login</a>
+            <a href="shop.html" class="btn-primary text-center">Shop Now</a>
+        </nav>
+        <div class="mt-auto pt-8 flex justify-center">
+            <button id="theme-toggle-mobile" class="p-4 rounded-full border border-gray-200 dark:border-gray-800"
+                onclick="document.getElementById('theme-toggle').click()">
+                <span class="dark:hidden">🌙 Dark Mode</span>
+                <span class="hidden dark:block">☀️ Light Mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Hero -->
+        <section class="parallax-container h-screen flex items-center justify-center pt-20 relative">
+            <div class="parallax-layer bg-[url('assets/images/hero_soap_making.jpg')] brightness-75 scale-110"
+                data-speed="0.2"></div>
+
+            <!-- Floating Herbs Animation Emulation -->
+            <div class="absolute inset-0 z-10 pointer-events-none">
+                <span class="absolute top-1/4 left-1/4 text-4xl animate-bounce" style="animation-duration: 3s">🌿</span>
+                <span class="absolute top-1/2 right-1/3 text-3xl animate-pulse" style="animation-delay: 1s">🍃</span>
+                <span class="absolute bottom-1/4 left-1/2 text-2xl animate-bounce"
+                    style="animation-duration: 4s; animation-delay: 0.5s">🌸</span>
+            </div>
+
+            <div class="relative z-20 text-center text-white p-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl mb-6 leading-tight animate-fade-in"
+                    style="clip-path: inset(0 0 100% 0); animation: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards">
+                    Pure Organics <br> <span class="text-primary italic">Crafted by Hand</span></h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 scroll-animate max-w-2xl mx-auto">Small batch skincare
+                    products made with love, patience, and the finest natural ingredients our earth provides.</p>
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 scroll-animate">
+                    <a href="shop.html" class="btn-primary w-full sm:w-auto">Explore Collection</a>
+                    <a href="subscription.html"
+                        class="btn-secondary !border-white !text-white hover:!bg-white hover:!text-primary w-full sm:w-auto">Subscribe
+                        & Save</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="py-20 bg-secondary dark:bg-dark-bg overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="text-4xl md:text-5xl mb-4">Our Best Sellers</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Discover the ritual your skin has been waiting for.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-load">
+                    <!-- Card 1 -->
+                    <div
+                        class="group bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="assets/images/skincare_oils.jpg" alt="Lavender Soap"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-xl mb-2">Wild Lavender Soap</h3>
+                            <p class="text-primary font-bold mb-4">$18.00</p>
+                            <a href="product-details.html"
+                                class="text-sm font-semibold tracking-widest uppercase border-b-2 border-primary hover:text-primary transition-all">Quick
+                                View</a>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="group bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="assets/images/natural_ingredients.jpg" alt="Charcoal Soap"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-xl mb-2">Botanical Facial Oil</h3>
+                            <p class="text-primary font-bold mb-4">$42.00</p>
+                            <a href="product-details.html"
+                                class="text-sm font-semibold tracking-widest uppercase border-b-2 border-primary hover:text-primary transition-all">Quick
+                                View</a>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="group bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="assets/images/hero_soap_making.jpg" alt="Honey Soap"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-xl mb-2">Honey & Oat Lather</h3>
+                            <p class="text-primary font-bold mb-4">$15.00</p>
+                            <a href="product-details.html"
+                                class="text-sm font-semibold tracking-widest uppercase border-b-2 border-primary hover:text-primary transition-all">Quick
+                                View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Foundation - Unique Section -->
+        <section class="py-24 bg-white dark:bg-dark-bg relative overflow-hidden">
+            <!-- Decorative Floating Elements -->
+            <div class="floating-leaf top-20 left-10 animate-bounce" style="animation-duration: 5s">🌿</div>
+            <div class="floating-leaf bottom-20 right-10 animate-pulse" style="animation-duration: 4s">🍃</div>
+
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Text Content with Mask Reveal Left -->
+                    <div class="w-full lg:w-1/2 mask-reveal-left scroll-animate">
+                        <span class="foundation-badge">The Foundation</span>
+                        <h2 class="text-5xl md:text-6xl font-bold mt-4 mb-8 leading-[1.1]">Born from Mother <br> <span
+                                class="text-primary italic">Nature's Garden</span></h2>
+                        <p class="text-xl text-gray-500 dark:text-gray-400 mb-10 max-w-xl leading-relaxed">
+                            We source only the purest herbs, essential oils, and botanicals. No synthetic fragrances, no
+                            parabens, just pure goodness crafted with conscious intention.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 stagger-load">
+                            <div
+                                class="flex items-center space-x-4 p-4 rounded-2xl bg-secondary/30 dark:bg-dark-card border border-primary/10 botanical-bloom scroll-animate">
+                                <span
+                                    class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">✓</span>
+                                <span class="font-bold text-lg">Cold Pressed Oils</span>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-secondary/30 dark:bg-dark-card border border-primary/10 botanical-bloom scroll-animate"
+                                style="transition-delay: 0.1s">
+                                <span
+                                    class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">✓</span>
+                                <span class="font-bold text-lg">Organic Herbs</span>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-secondary/30 dark:bg-dark-card border border-primary/10 botanical-bloom scroll-animate"
+                                style="transition-delay: 0.2s">
+                                <span
+                                    class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">✓</span>
+                                <span class="font-bold text-lg">Small Batch</span>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-secondary/30 dark:bg-dark-card border border-primary/10 botanical-bloom scroll-animate"
+                                style="transition-delay: 0.3s">
+                                <span
+                                    class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">✓</span>
+                                <span class="font-bold text-lg">Cruelty Free</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Content with Mask Reveal Right -->
+                    <div class="w-full lg:w-1/2 relative group mask-reveal-right scroll-animate">
+                        <div
+                            class="absolute -inset-4 bg-primary/10 rounded-[4rem] blur-3xl opacity-50 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div
+                            class="relative overflow-hidden rounded-[3rem] h-[600px] border-8 border-white dark:border-gray-800 shadow-2xl">
+                            <img src="assets/images/natural_ingredients.jpg" alt="Botanical Ingredients"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+                            <div class="absolute bottom-10 left-10 text-white">
+                                <p class="text-sm font-bold uppercase tracking-widest mb-2">Artisan Focus</p>
+                                <h4 class="text-3xl font-bold leading-tight">Grown with Care, <br> Poured with Passion.
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Artisan's Journey - Unique Section -->
+        <section class="py-24 bg-secondary/50 dark:bg-dark-bg relative overflow-hidden">
+            <div class="container mx-auto px-4 relative">
+                <div class="text-center mb-24 scroll-animate">
+                    <span class="foundation-badge">The Process</span>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6">The Artisan's Journey</h2>
+                    <p class="text-xl text-gray-500 max-w-2xl mx-auto">Patience is our secret ingredient. Every bar
+                        tells a story of time, nature, and hand-poured dedication.</p>
+                </div>
+
+                <!-- Zig Zag Timeline -->
+                <div class="relative max-w-6xl mx-auto">
+                    <!-- Vertical Line -->
+                    <div class="timeline-line-container">
+                        <div class="timeline-progress scroll-animate"></div>
+                    </div>
+
+                    <div class="space-y-32">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col lg:flex-row items-center justify-between group">
+                            <div class="w-full lg:w-[45%] journey-card scroll-animate">
+                                <div class="journey-step-number">01</div>
+                                <h3 class="text-3xl font-bold mb-6">Sustainable Sourcing</h3>
+                                <p class="text-gray-500 text-lg leading-relaxed">
+                                    We work directly with local farmers to select the freshest herbs and flowers at
+                                    their peak potency. Our ingredients are ethically harvested, ensuring the land
+                                    remains as vibrant as our products.
+                                </p>
+                            </div>
+                            <div
+                                class="hidden lg:block w-4 h-4 rounded-full bg-primary relative z-10 shadow-[0_0_20px_rgba(142,182,155,0.5)]">
+                            </div>
+                            <div
+                                class="w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
+                                <img src="assets/images/natural_ingredients.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex flex-col lg:flex-row-reverse items-center justify-between group">
+                            <div class="w-full lg:w-[45%] journey-card scroll-animate" style="transition-delay: 0.2s">
+                                <div class="journey-step-number lg:-right-6 lg:left-auto">02</div>
+                                <h3 class="text-3xl font-bold mb-6">Cold Mixing Process</h3>
+                                <p class="text-gray-500 text-lg leading-relaxed">
+                                    Our soaps are created using traditional cold-process methods. By avoiding excessive
+                                    heat, we preserve the delicate healing properties of our organic oils and essential
+                                    botanicals.
+                                </p>
+                            </div>
+                            <div
+                                class="hidden lg:block w-4 h-4 rounded-full bg-primary relative z-10 shadow-[0_0_20px_rgba(142,182,155,0.5)]">
+                            </div>
+                            <div
+                                class="w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
+                                <img src="assets/images/hero_soap_making.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex flex-col lg:flex-row items-center justify-between group">
+                            <div class="w-full lg:w-[45%] journey-card scroll-animate" style="transition-delay: 0.4s">
+                                <div class="journey-step-number">03</div>
+                                <h3 class="text-3xl font-bold mb-6">6-Week Curing Period</h3>
+                                <p class="text-gray-500 text-lg leading-relaxed">
+                                    Every bar is aged for a minimum of 6 weeks. This patience ensures a hard,
+                                    long-lasting bar with a rich, creamy lather that is incredibly gentle on even the
+                                    most sensitive skin.
+                                </p>
+                            </div>
+                            <div
+                                class="hidden lg:block w-4 h-4 rounded-full bg-primary relative z-10 shadow-[0_0_20px_rgba(142,182,155,0.5)]">
+                            </div>
+                            <div
+                                class="w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
+                                <img src="assets/images/skincare_oils.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-20 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-4xl mx-auto scroll-animate">
+                    <span class="text-primary text-6xl">"</span>
+                    <h2 class="text-3xl md:text-4xl italic font-light mb-8 leading-relaxed">My skin has never felt more
+                        nourished. The lavender soap smells like a literal garden and the lathers is so creamy. A true
+                        luxury ritual.</h2>
+                    <div class="flex items-center justify-center space-x-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-200 overflow-hidden">
+                            <img src="https://i.pravatar.cc/100?u=jane" alt="Jane Doe">
+                        </div>
+                        <div class="text-left">
+                            <p class="font-bold">Emilia Clarson</p>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscription CTA -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div
+                    class="bg-primary rounded-[3rem] p-12 md:p-24 relative overflow-hidden text-center text-white scroll-animate">
+                    <div class="absolute top-0 right-0 p-8 transform rotate-12 opacity-20 text-9xl">🧼</div>
+                    <div class="relative z-10">
+                        <h2 class="text-4xl md:text-6xl mb-8">Never Run Out of Nature</h2>
+                        <p class="text-xl mb-12 opacity-90 max-w-2xl mx-auto">Join our monthly subscription club and get
+                            fresh artisan soaps delivered to your door with 20% off every order.</p>
+                        <a href="subscription.html"
+                            class="inline-block bg-white text-primary px-12 py-5 rounded-full font-bold hover:scale-105 transition-transform">Get
+                            Started Today</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary dark:bg-black py-20 border-t border-gray-100 dark:border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 stagger-load">
+                <div class="flex flex-col">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <span class="text-primary text-2xl">🌱</span>
+                        <span
+                            class="font-premium font-bold text-xl uppercase tracking-tighter text-gray-800 dark:text-white">Handmade
+                            Soap</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xs">Naturally crafted skincare for the
+                        conscious soul. Pure, sustainable, and organic.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">FB</a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">IG</a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">TW</a>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-premium font-bold uppercase mb-8 text-primary">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="home-2.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Shop</a></li>
+                        <li><a href="subscription.html" class="hover:text-primary transition-colors">Subscriptions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-premium font-bold uppercase mb-8 text-primary">Categories</h4>
+                    <ul class="space-y-4">
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Artisan Soaps</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Body Lotions</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Serum Oils</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Bath Salts</a></li>
+                    </ul>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-premium font-bold uppercase mb-8 text-primary">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">Join for 10% off your first artisan order.</p>
+                    <form class="flex flex-col space-y-4">
+                        <input type="email" placeholder="Email Address"
+                            class="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 py-3 px-6 rounded-full focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+                <p>© 2026 Handmade Soap & Skincare Company. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full hidden items-center justify-center shadow-lg hover:scale-110 transition-all z-40">
+        ↑
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <style>
+        @keyframes textReveal {
+            to {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Story | Handmade Soap & Skincare</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#121212', card: '#1E1E1E', text: '#F5F5F5' } },
+                    fontFamily: { premium: ['Playfair Display', 'serif'], body: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .diagonal-hero {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+
+        .slide-fade-layers .layer {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideFadeIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-dark-bg text-gray-800 dark:text-dark-text font-body transition-colors duration-300">
+
+    <!-- Header (Same as index) -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-primary text-2xl">🌱</span>
+                <span class="font-premium font-bold text-xl tracking-tight uppercase">Handmade Soap</span>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-primary transition-colors font-medium">Home</a>
+                <a href="home-2.html" class="hover:text-primary transition-colors font-medium text-primary">Home 2</a>
+                <a href="shop.html" class="hover:text-primary transition-colors font-medium">Shop</a>
+                <a href="pricing.html" class="hover:text-primary transition-colors font-medium">Pricing</a>
+                <a href="blog.html" class="hover:text-primary transition-colors font-medium">Blog</a>
+                <a href="gallery.html" class="hover:text-primary transition-colors font-medium">Gallery</a>
+                <a href="dashboard.html" class="hover:text-primary transition-colors font-medium">Dashboard</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle theme">
+                    <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
+                    </svg>
+                    <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                        </path>
+                    </svg>
+                </button>
+                <a href="register.html" class="btn-secondary py-2 text-sm">Login</a>
+                <a href="shop.html" class="btn-primary py-2 text-sm">Shop Now</a>
+            </div>
+
+            <button id="menu-btn"
+                class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden"></div>
+    <div id="mobile-drawer"
+        class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-dark-bg z-[70] shadow-2xl p-8 flex flex-col">
+        <div class="flex items-center justify-between mb-12">
+            <span class="font-premium font-bold text-xl uppercase">Handmade Soap</span>
+            <button id="close-btn" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-6 text-lg font-medium">
+            <a href="index.html">Home</a>
+            <a href="home-2.html" class="text-primary">Home 2</a>
+            <a href="shop.html">Shop</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="blog.html">Blog</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="dashboard.html">Dashboard</a>
+            <hr class="border-gray-100 dark:border-gray-800">
+            <a href="register.html" class="btn-secondary text-center">Login</a>
+            <a href="shop.html" class="btn-primary text-center">Shop Now</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Premium Botanical Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-[#faf9f6] dark:bg-dark-bg pt-20">
+            <!-- Background Decorative Elements -->
+            <div class="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl hero-botanical-float">
+            </div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl hero-botanical-float"
+                style="animation-delay: -2s"></div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                    <!-- Left Content Column -->
+                    <div class="w-full lg:w-5/12 space-y-10">
+                        <div class="animate-hero-reveal">
+                            <span
+                                class="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">Established
+                                2018</span>
+                            <h1 class="text-6xl md:text-8xl font-bold leading-[1.1] mb-8">
+                                A Vision of <br> <span class="hero-gradient-text italic">Purity</span>
+                            </h1>
+                            <p class="text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
+                                Crafting a cleaner world, one botanical bar at a time. We believe skincare should be an
+                                extension of nature, not a chemical bypass.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center gap-8 animate-hero-reveal" style="animation-delay: 0.3s">
+                            <div class="flex -space-x-4">
+                                <div class="w-12 h-12 rounded-full border-4 border-white bg-gray-200 overflow-hidden">
+                                    <img src="assets/images/user1.jpg" class="w-full h-full object-cover"
+                                        onerror="this.src='https://i.pravatar.cc/100?img=1'">
+                                </div>
+                                <div class="w-12 h-12 rounded-full border-4 border-white bg-gray-200 overflow-hidden">
+                                    <img src="assets/images/user2.jpg" class="w-full h-full object-cover"
+                                        onerror="this.src='https://i.pravatar.cc/100?img=2'">
+                                </div>
+                                <div
+                                    class="w-12 h-12 rounded-full border-4 border-white bg-primary flex items-center justify-center text-white text-xs font-bold">
+                                    +15k
+                                </div>
+                            </div>
+                            <p class="text-sm font-medium text-gray-400 uppercase tracking-tighter">Trusted by skin
+                                enthusiasts globally</p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4 animate-hero-reveal" style="animation-delay: 0.5s">
+                            <a href="shop.html"
+                                class="btn-primary px-10 py-5 rounded-full text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 transition-transform">Explore
+                                Collection</a>
+                            <a href="#story"
+                                class="px-10 py-5 rounded-full text-lg font-medium border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-dark-card transition-colors">Our
+                                Story</a>
+                        </div>
+                    </div>
+
+                    <!-- Right Image Column -->
+                    <div class="w-full lg:w-7/12 relative group animate-hero-reveal" style="animation-delay: 0.4s">
+                        <div
+                            class="relative rounded-[5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] aspect-[4/5] lg:aspect-auto lg:h-[750px]">
+                            <img src="C:\Users\admin\.gemini\antigravity\brain\a74941a6-c263-4a64-beee-2035c4175031\premium_botanical_hero_split_1774938533611.png"
+                                class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
+
+                            <!-- Floating Stats Card -->
+                            <div
+                                class="absolute bottom-12 left-12 hero-glass-card p-10 rounded-[3rem] max-w-xs transform group-hover:-translate-y-4 transition-transform duration-700">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white text-2xl">
+                                        🌿</div>
+                                    <span class="text-4xl font-bold">100%</span>
+                                </div>
+                                <p class="text-sm font-medium opacity-80 uppercase tracking-widest text-primary italic">
+                                    Wild Harvested Ingredients</p>
+                            </div>
+                        </div>
+
+                        <!-- Accent Graphic -->
+                        <div
+                            class="absolute -top-12 -right-12 w-48 h-48 border-2 border-primary/20 rounded-full animate-pulse">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="py-20 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
+                        <span class="text-4xl mb-6 block">🥥</span>
+                        <h4 class="text-xl mb-4">Vegan-Friendly</h4>
+                        <p class="text-gray-600">No animal-derived ingredients. Always 100% plant-based.</p>
+                    </div>
+                    <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
+                        <span class="text-4xl mb-6 block">♻️</span>
+                        <h4 class="text-xl mb-4">Zero Waste</h4>
+                        <p class="text-gray-600">Our packaging is compostable and plastic-free.</p>
+                    </div>
+                    <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
+                        <span class="text-4xl mb-6 block">✋</span>
+                        <h4 class="text-xl mb-4">Handcrafted</h4>
+                        <p class="text-gray-600">Small batches ensured for maximum quality control.</p>
+                    </div>
+                    <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
+                        <span class="text-4xl mb-6 block">💧</span>
+                        <h4 class="text-xl mb-4">Paraben Free</h4>
+                        <p class="text-gray-600">Pure botanicals without the harsh chemicals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 1. Botanical Alchemy Section -->
+        <section class="py-32 bg-white dark:bg-dark-bg relative overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-20">
+                    <div class="w-full lg:w-1/2 scroll-animate">
+                        <span class="foundation-badge">Botanical Alchemy</span>
+                        <h2 class="text-5xl md:text-6xl font-bold mb-8">What We Keep Out <br> <span
+                                class="text-primary italic">Is As Important As What We Put In</span></h2>
+                        <div class="space-y-4">
+                            <div class="alchemy-list-item">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-xl">
+                                    ✕</div>
+                                <div>
+                                    <h4 class="font-bold">No SLS or Parabens</h4>
+                                    <p class="text-sm text-gray-500">Zero synthetic foaming agents that strip your skin.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="alchemy-list-item active-border-pulse">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl">
+                                    ✓</div>
+                                <div>
+                                    <h4 class="font-bold">Raw Cold-Pressed Oils</h4>
+                                    <p class="text-sm text-gray-500">Retaining 100% of the plant's healing enzymes.</p>
+                                </div>
+                            </div>
+                            <div class="alchemy-list-item">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-xl">
+                                    ✕</div>
+                                <div>
+                                    <h4 class="font-bold">No Artificial Fragrance</h4>
+                                    <p class="text-sm text-gray-500">Only steam-distilled essential oils from the
+                                        garden.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 relative scroll-animate">
+                        <div
+                            class="relative rounded-[4rem] overflow-hidden shadow-2xl border-4 border-white dark:border-dark-card group">
+                            <img src="C:\Users\admin\.gemini\antigravity\brain\a74941a6-c263-4a64-beee-2035c4175031\botanical_ingredients_macro_1774936855906.png"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12">
+                                <p class="text-white text-xl italic">"Measured by hand, spirit, and season."</p>
+                            </div>
+                        </div>
+                        <!-- Decorative Orbs -->
+                        <div
+                            class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl float-subtle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. The Sensory Ritual Section -->
+        <section class="py-32 ritual-backdrop relative min-h-[800px] flex items-center"
+            style="background-image: url('C:\\Users\\admin\\.gemini\\antigravity\\brain\\a74941a6-c263-4a64-beee-2035c4175031\\luxury_soap_ritual_steam_1774936896519.png')">
+            <div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <div
+                    class="max-w-3xl mx-auto bg-white/10 backdrop-blur-xl p-12 md:p-20 rounded-[4rem] border border-white/20 text-white scroll-animate">
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] mb-6 block opacity-80">The Daily
+                        Escape</span>
+                    <h2 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">A Slower Pace <br> For Your <span
+                            class="italic text-primary">Soul</span></h2>
+                    <p class="text-xl opacity-90 mb-12 leading-relaxed">Turn your daily shower into a meditative garden
+                        walk. Our soaps don't just clean; they transform the atmosphere through aromatherapeutic steam.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/20">
+                        <div class="text-center">
+                            <span class="text-3xl block mb-2">🌬️</span>
+                            <h4 class="font-bold">Top Note</h4>
+                            <p class="text-sm opacity-70">Wild Lavender & Mint</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-3xl block mb-2">🪵</span>
+                            <h4 class="font-bold">Base Note</h4>
+                            <p class="text-sm opacity-70">Sandalwood & Earth</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outfitactive Scent Floating Notes -->
+            <div class="scent-note top-1/4 right-[15%]" title="Lavender">🪻</div>
+            <div class="scent-note bottom-1/3 right-[30%]" title="Mint">🌿</div>
+            <div class="scent-note top-1/2 right-[10%]" title="Citrus">🍋</div>
+        </section>
+
+        <!-- 3. The Artisan's Pledge Section -->
+        <section class="py-32 bg-secondary/30 dark:bg-dark-card/20 overflow-hidden">
+            <div class="container mx-auto px-4 text-center flex flex-col items-center">
+                <div class="mb-20 scroll-animate max-w-4xl">
+                    <span class="foundation-badge">The Pledge</span>
+                    <h2 class="pledge-manifesto animate-text-reveal scroll-animate text-5xl md:text-8xl">Built to Last,
+                        <br> Not Just to Sell.
+                    </h2>
+                </div>
+
+                <div class="flex flex-col lg:flex-row items-center gap-16 text-left">
+                    <div class="w-full lg:w-1/3 scroll-animate">
+                        <div
+                            class="p-12 bg-white dark:bg-dark-card rounded-[3rem] shadow-xl border border-primary/5 hover:-translate-y-4 transition-all hover:bg-primary hover:text-white group">
+                            <span class="text-5xl block mb-8 group-hover:scale-125 transition-transform">🌍</span>
+                            <h3 class="text-2xl font-bold mb-4">Zero Plastic</h3>
+                            <p class="opacity-70">Completely compostable packaging, even down to the botanical ink.</p>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3">
+                        <div class="relative rounded-[3rem] overflow-hidden aspect-[3/4] shadow-2xl scroll-animate">
+                            <img src="C:\Users\admin\.gemini\antigravity\brain\a74941a6-c263-4a64-beee-2035c4175031\sustainable_packaging_artisan_1774936935564.png"
+                                class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3 scroll-animate">
+                        <div
+                            class="p-12 bg-white dark:bg-dark-card rounded-[3rem] shadow-xl border border-primary/5 hover:-translate-y-4 transition-all hover:bg-primary hover:text-white group">
+                            <span class="text-5xl block mb-8 group-hover:scale-125 transition-transform">🐇</span>
+                            <h3 class="text-2xl font-bold mb-4">Cruelty Free</h3>
+                            <p class="opacity-70">Tested by artisans, not animals. 100% vegan and organic.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garden to Home Section - Unique Storytelling -->
+        <section class="py-32 relative overflow-hidden bg-white dark:bg-dark-bg">
+            <!-- Decorative Floating Leaves -->
+            <div class="absolute top-10 left-[10%] text-primary/20 text-6xl rotate-12 leaf-float-slow">🌿</div>
+            <div class="absolute bottom-20 right-[5%] text-primary/10 text-8xl -rotate-12 leaf-float-slow">🍃</div>
+
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-24">
+                    <!-- Left Content -->
+                    <div class="w-full lg:w-1/2 scroll-animate">
+                        <span class="foundation-badge">The Origin Story</span>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-8 leading-[1.1]">From My Garden <br> <span
+                                class="text-primary italic">to Your Home</span></h2>
+
+                        <div class="space-y-6 text-lg text-gray-600 dark:text-gray-400 mb-12">
+                            <p class="leading-relaxed border-l-4 border-primary pl-6 italic">
+                                "It started with a single pot of lavender and a desire for cleaner skincare. Today, our
+                                philosophy remains the same: If you can't eat it, it shouldn't be on your skin."
+                            </p>
+                            <p>
+                                Every batch is personally inspected by our master artisan, Sarah, ensuring the perfect
+                                balance of moisture and scent. We work with 12 organic farms that share our commitment
+                                to soil health and biodiversity.
+                            </p>
+                        </div>
+
+                        <div
+                            class="flex flex-wrap gap-8 items-center pt-8 border-t border-gray-100 dark:border-gray-800">
+                            <div class="flex items-center space-x-6">
+                                <div
+                                    class="w-20 h-20 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg glow-primary">
+                                    <img src="C:\Users\admin\.gemini\antigravity\brain\a74941a6-c263-4a64-beee-2035c4175031\artisan_sarah_profile_1774935342798.png"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <div class="font-premium font-bold text-3xl italic text-gray-800 dark:text-white">
+                                        Sarah Jenkins</div>
+                                    <div class="text-sm text-primary uppercase tracking-widest font-bold">Founder & Lead
+                                        Chemist</div>
+                                </div>
+                            </div>
+                            <div class="h-16 w-px bg-gray-100 dark:bg-gray-800 hidden md:block"></div>
+                            <div class="flex -space-x-4">
+                                <div
+                                    class="w-12 h-12 rounded-full border-2 border-white dark:border-dark-bg bg-primary/20 flex items-center justify-center text-xl">
+                                    🌱</div>
+                                <div
+                                    class="w-12 h-12 rounded-full border-2 border-white dark:border-dark-bg bg-primary/20 flex items-center justify-center text-xl">
+                                    💧</div>
+                                <div
+                                    class="w-12 h-12 rounded-full border-2 border-white dark:border-dark-bg bg-primary/20 flex items-center justify-center text-xl">
+                                    ✨</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual - Single Square Image -->
+                    <div class="w-full lg:w-1/2 relative garden-reveal scroll-animate">
+                        <div class="relative z-10 w-full aspect-square max-w-[600px] mx-auto">
+                            <div
+                                class="w-full h-full overflow-hidden rounded-[3rem] shadow-2xl border-8 border-white dark:border-dark-card group">
+                                <img src="assets/images/natural_ingredients.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            </div>
+
+                        </div>
+
+                        <!-- Accent Decorative Circle -->
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-10 -left-10 w-60 h-60 bg-primary/10 rounded-full blur-3xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary dark:bg-black py-20 border-t border-gray-100 dark:border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 stagger-load">
+                <div class="flex flex-col">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <span class="text-primary text-2xl">🌱</span>
+                        <span
+                            class="font-premium font-bold text-xl uppercase tracking-tighter text-gray-800 dark:text-white">Handmade
+                            Soap</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xs">Naturally crafted skincare for the
+                        conscious soul. Pure, sustainable, and organic.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">FB</a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">IG</a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">TW</a>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-premium font-bold uppercase mb-8 text-primary">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Shop</a></li>
+                        <li><a href="subscription.html" class="hover:text-primary transition-colors">Subscriptions</a>
+                        </li>
+                        <li><a href="gallery.html" class="hover:text-primary transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-premium font-bold uppercase mb-8 text-primary">Categories</h4>
+                    <ul class="space-y-4">
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Artisan Soaps</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Body Lotions</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Serum Oils</a></li>
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">Bath Salts</a></li>
+                    </ul>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h4 class="font-premium font-bold uppercase mb-8 text-primary">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">Join for 10% off your first artisan order.</p>
+                    <form class="flex flex-col space-y-4">
+                        <input type="email" placeholder="Email Address"
+                            class="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 py-3 px-6 rounded-full focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+                <p>© 2026 Handmade Soap & Skincare Company. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
