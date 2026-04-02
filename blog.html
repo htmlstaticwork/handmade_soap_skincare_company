@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-size='44'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E">
     <title>The Botanical Blog | Handmade Soap & Skincare</title>
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -108,9 +110,9 @@
     <header
         class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-2 text-primary">
-                <span class="text-2xl">🌱</span><span
-                    class="font-premium font-bold text-xl uppercase text-gray-800 dark:text-white">Handmade Soap</span>
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-primary text-2xl">🌱</span><span
+                    class="font-premium font-bold text-xl tracking-tight uppercase text-gray-800 dark:text-white">Handmade Soap</span>
             </a>
             <nav class="hidden lg:flex items-center space-x-8">
                 <a href="index.html" class="hover:text-primary transition-colors font-medium">Home</a>
@@ -159,13 +161,16 @@
 
     <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden"></div>
     <div id="mobile-drawer"
-        class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-dark-bg z-[70] shadow-2xl p-8 flex flex-col font-body">
-        <div class="flex items-center justify-between mb-12"><span
-                class="font-premium font-bold text-xl uppercase">Handmade Soap</span><button id="close-btn"
-                class="p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-dark-bg z-[70] shadow-2xl p-8 flex flex-col">
+        <div class="flex items-center justify-between mb-12">
+            <span class="font-premium font-bold text-xl uppercase">Handmade Soap</span>
+            <button id="close-btn" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                     </path>
-                </svg></button></div>
+                </svg>
+            </button>
+        </div>
         <nav class="flex flex-col space-y-6 text-lg font-medium">
             <a href="index.html">Home</a>
             <a href="home-2.html">Home 2</a>
@@ -177,6 +182,12 @@
             <hr class="border-gray-100 dark:border-gray-800">
             <a href="register.html" class="btn-secondary text-center">Login</a>
             <a href="shop.html" class="btn-primary text-center">Shop Now</a>
+            <button id="theme-toggle-mobile"
+                class="w-full p-4 rounded-full border border-gray-200 dark:border-gray-800 text-center"
+                onclick="document.getElementById('theme-toggle').click()">
+                <span class="dark:hidden">Dark Mode</span>
+                <span class="hidden dark:block">Light Mode</span>
+            </button>
         </nav>
     </div>
 
@@ -193,7 +204,7 @@
                 <div class="w-full lg:w-1/2 text-center lg:text-left">
                     <div class="space-y-8 letter-stagger flex flex-col items-center lg:items-start">
                         <span
-                            class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold tracking-widest uppercase mb-4"
+                            class="inline-block px-4 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-[#dbe8dc] rounded-full text-xs font-bold tracking-widest uppercase mb-4"
                             style="animation-delay: 0.1s">Botanical Journals</span>
                         <h1
                             class="text-7xl md:text-9xl font-bold font-premium leading-[1] text-gray-800 dark:text-white">
@@ -211,12 +222,14 @@
                         </p>
                         <div class="flex items-center gap-10 mt-12" style="animation-delay: 1s">
                             <div class="flex -space-x-4">
-                                <img src="https://i.pravatar.cc/100?img=11"
-                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg">
-                                <img src="https://i.pravatar.cc/100?img=12"
-                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg">
-                                <span
-                                    class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold border-4 border-secondary">9k</span>
+                                <img src="https://i.pravatar.cc/100?img=11" alt="Subscriber avatar"
+                                    onerror="this.onerror=null;this.src='assets/images/artisan_sarah_profile.png';"
+                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg object-cover">
+                                <img src="https://i.pravatar.cc/100?img=12" alt="Subscriber avatar"
+                                    onerror="this.onerror=null;this.src='assets/images/artisan_sarah_profile.png';"
+                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg object-cover">
+                                <img src="assets/images/artisan_sarah_profile.png" alt="Subscriber avatar"
+                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg object-cover">
                             </div>
                             <p class="text-sm font-bold uppercase tracking-widest text-primary font-body">Subscribers
                                 reading today</p>
@@ -369,7 +382,7 @@
                                 class="harvest-card flex items-center gap-6 p-6 bg-white dark:bg-dark-bg rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:scale-105 transition-transform">
                                 <span class="text-3xl">🌸</span>
                                 <div>
-                                    <h4 class="font-bold text-primary">Spring: Lavender & Mint</h4>
+                                    <h4 class="font-bold text-primary dark:text-[#dbe8dc]">Spring: Lavender & Mint</h4>
                                     <p class="text-sm text-gray-400 font-bold uppercase tracking-widest">March - May</p>
                                 </div>
                             </div>
@@ -377,7 +390,7 @@
                                 style="transition-delay: 0.1s">
                                 <span class="text-3xl">🌿</span>
                                 <div>
-                                    <h4 class="font-bold text-primary">Summer: Rosemary & Thyme</h4>
+                                    <h4 class="font-bold text-primary dark:text-[#dbe8dc]">Summer: Rosemary & Thyme</h4>
                                     <p class="text-sm text-gray-400 font-bold uppercase tracking-widest">June - Aug</p>
                                 </div>
                             </div>
@@ -385,7 +398,7 @@
                                 style="transition-delay: 0.2s">
                                 <span class="text-3xl">🍁</span>
                                 <div>
-                                    <h4 class="font-bold text-primary">Autumn: Juniper & Pine</h4>
+                                    <h4 class="font-bold text-primary dark:text-[#dbe8dc]">Autumn: Juniper & Pine</h4>
                                     <p class="text-sm text-gray-400 font-bold uppercase tracking-widest">Sept - Nov</p>
                                 </div>
                             </div>
@@ -419,7 +432,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 font-body text-left">
                         <div
                             class="p-8 backdrop-blur-xl bg-white/10 rounded-[3rem] border border-white/20 hover:bg-white/20 transition-all cursor-default group shadow-xl">
-                            <span class="text-primary text-3xl font-bold mb-6 block">01</span>
+                            <span class="text-[#2f4731] dark:text-[#dbe8dc] text-3xl font-bold mb-6 block">01</span>
                             <h4 class="text-2xl font-bold mb-4 font-premium font-bold uppercase">Solar Charging</h4>
                             <p class="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors">
                                 Our oils sit in large glass containers under the rising sun to charge the active
@@ -427,14 +440,14 @@
                         </div>
                         <div class="p-8 backdrop-blur-xl bg-white/10 rounded-[3rem] border border-white/20 hover:bg-white/20 transition-all cursor-default group shadow-xl"
                             style="transition-delay: 0.1s">
-                            <span class="text-primary text-3xl font-bold mb-6 block">02</span>
+                            <span class="text-[#2f4731] dark:text-[#dbe8dc] text-3xl font-bold mb-6 block">02</span>
                             <h4 class="text-2xl font-bold mb-4 font-premium font-bold uppercase">Botanical Infusion</h4>
                             <p class="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors">
                                 Organic petals are added and left to infuse for 28 moon cycles for maximum potency.</p>
                         </div>
                         <div class="p-8 backdrop-blur-xl bg-white/10 rounded-[3rem] border border-white/20 hover:bg-white/20 transition-all cursor-default group shadow-xl"
                             style="transition-delay: 0.2s">
-                            <span class="text-primary text-3xl font-bold mb-6 block">03</span>
+                            <span class="text-[#2f4731] dark:text-[#dbe8dc] text-3xl font-bold mb-6 block">03</span>
                             <h4 class="text-2xl font-bold mb-4 font-premium font-bold uppercase">Triple-Filtered</h4>
                             <p class="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors">
                                 Multiple filtration passes through organic muslin ensures our serums remain crystalline.
@@ -551,7 +564,7 @@
                     </ul>
                 </div>
 
-                <div class="text-center md:text-left">
+                <div class="text-left md:w-fit md:mx-auto lg:w-auto lg:mx-0">
                     <h4 class="font-premium font-bold uppercase mb-8 text-primary">Categories</h4>
                     <ul class="space-y-4">
                         <li><a href="shop.html" class="hover:text-primary transition-colors">Artisan Soaps</a></li>

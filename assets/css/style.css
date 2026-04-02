@@ -101,6 +101,12 @@ h6 {
         background-color: #121212;
         color: #F5F5F5;
     }
+
+    /* Keep footer section headings readable against the dark footer background. */
+    .dark footer h4.text-primary,
+    [data-theme='dark'] footer h4.text-primary {
+        color: #8EB69B;
+    }
 }
 
 /* Custom Global Animations */
@@ -236,8 +242,16 @@ h6 {
     color: white;
 }
 
+.rtl-toggle-active.text-primary {
+    color: white;
+}
+
 .rtl-toggle-active:hover {
     background-color: var(--primary);
+    color: white;
+}
+
+.rtl-toggle-active.text-primary:hover {
     color: white;
 }
 
@@ -347,6 +361,13 @@ h6 {
     display: inline-block;
     margin-bottom: 1rem;
     box-shadow: inset 0 0 20px rgba(142, 182, 155, 0.2);
+}
+
+.dark .foundation-badge,
+[data-theme='dark'] .foundation-badge {
+    background-color: rgba(142, 182, 155, 0.28);
+    color: #cfe0d0;
+    box-shadow: inset 0 0 20px rgba(142, 182, 155, 0.18);
 }
 
 .dark .pricing-lab-badge,

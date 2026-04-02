@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-size='44'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E">
     <title>Visual Rituals | Handmade Soap & Skincare Gallery</title>
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -211,16 +213,18 @@
             .texture-grid {
                 height: auto !important;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+                align-items: stretch;
             }
 
             .texture-grid-item {
                 aspect-ratio: 1 / 1;
+                width: 100%;
             }
 
             .texture-grid-wide,
             .texture-grid-tall {
-                grid-column: span 1 / span 1;
-                grid-row: span 1 / span 1;
+                grid-column: span 1 / span 1 !important;
+                grid-row: span 1 / span 1 !important;
             }
         }
 
@@ -231,6 +235,7 @@
 
             .texture-grid-item {
                 aspect-ratio: 4 / 3;
+                width: 100%;
             }
         }
 
@@ -254,6 +259,34 @@
         .timeline-node.revealed {
             opacity: 1;
             transform: scale(1);
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .timeline-journey-row {
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .timeline-journey-row .timeline-node {
+                flex: 0 0 calc(25% - 1.125rem);
+                max-width: calc(25% - 1.125rem);
+                min-width: 0;
+            }
+
+            .timeline-journey-row .timeline-visual-frame {
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .timeline-journey-row .timeline-node p {
+                max-width: 11rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .timeline-stage-four-image {
+                object-position: center 35%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -287,9 +320,9 @@
     <header
         class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-2 text-primary">
-                <span class="text-2xl">🌱</span><span
-                    class="font-premium font-bold text-xl uppercase text-gray-800 dark:text-white">Handmade Soap</span>
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-primary text-2xl">🌱</span><span
+                    class="font-premium font-bold text-xl tracking-tight uppercase text-gray-800 dark:text-white">Handmade Soap</span>
             </a>
             <nav class="hidden lg:flex items-center space-x-8">
                 <a href="index.html" class="hover:text-primary transition-colors font-medium">Home</a>
@@ -359,6 +392,12 @@
             <hr class="border-gray-100 dark:border-gray-800">
             <a href="register.html" class="btn-secondary text-center">Login</a>
             <a href="shop.html" class="btn-primary text-center">Shop Now</a>
+            <button id="theme-toggle-mobile"
+                class="w-full p-4 rounded-full border border-gray-200 dark:border-gray-800 text-center"
+                onclick="document.getElementById('theme-toggle').click()">
+                <span class="dark:hidden">Dark Mode</span>
+                <span class="hidden dark:block">Light Mode</span>
+            </button>
         </nav>
     </div>
 
@@ -488,13 +527,13 @@
                             to artisan bars.</p>
                     </div>
 
-                    <div class="relative flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="timeline-journey-row relative flex flex-col md:flex-row items-center justify-between gap-12">
                         <div class="timeline-line hidden md:block"></div>
 
                         <!-- Step 1 -->
                         <div class="timeline-node scroll-animate w-full md:w-1/4 relative z-10 text-center">
                             <div
-                                class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl mb-8 group">
+                                class="timeline-visual-frame w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl mb-8 group">
                                 <img src="assets/images/natural_ingredients.jpg"
                                     class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
                             </div>
@@ -506,7 +545,7 @@
                         <div class="timeline-node scroll-animate w-full md:w-1/4 relative z-10 text-center"
                             style="transition-delay: 0.2s">
                             <div
-                                class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl mb-8 group">
+                                class="timeline-visual-frame w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl mb-8 group">
                                 <img src="assets/images/hero_soap_making.jpg"
                                     class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
                             </div>
@@ -519,7 +558,7 @@
                         <div class="timeline-node scroll-animate w-full md:w-1/4 relative z-10 text-center"
                             style="transition-delay: 0.4s">
                             <div
-                                class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl mb-8 group">
+                                class="timeline-visual-frame w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl mb-8 group">
                                 <img src="assets/images/traditional_oil_infusion_apothecary.png"
                                     class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
                             </div>
@@ -527,17 +566,6 @@
                             <p class="text-sm font-body text-gray-400">Patience. 42 days of mountain-air curing.</p>
                         </div>
 
-                        <!-- Step 4 -->
-                        <div class="timeline-node scroll-animate w-full md:w-1/4 relative z-10 text-center"
-                            style="transition-delay: 0.6s">
-                            <div
-                                class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl mb-8 group">
-                                <img src="assets/images/unboxing_ritual_box.png"
-                                    class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
-                            </div>
-                            <h4 class="font-premium text-2xl font-bold mb-2">Stage 04: Reveal</h4>
-                            <p class="text-sm font-body text-gray-400">Wrapped in sustainable linen, ready for you.</p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -636,7 +664,7 @@
                     </ul>
                 </div>
 
-                <div class="text-center md:text-left">
+                <div class="text-left md:w-fit md:mx-auto lg:w-auto lg:mx-0">
                     <h4 class="font-premium font-bold uppercase mb-8 text-primary">Categories</h4>
                     <ul class="space-y-4">
                         <li><a href="shop.html" class="hover:text-primary transition-colors">Artisan Soaps</a></li>
