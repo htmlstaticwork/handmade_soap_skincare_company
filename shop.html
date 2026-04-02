@@ -38,6 +38,9 @@
                 <a href="dashboard.html" class="hover:text-primary transition-colors font-medium">Dashboard</a>
             </nav>
             <div class="hidden lg:flex items-center space-x-4">
+                <button type="button" data-rtl-toggle
+                    class="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
                 <button id="theme-toggle"
                     class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,13 +57,19 @@
                 <a href="register.html" class="btn-secondary py-2 text-sm">Login</a>
                 <a href="shop.html" class="btn-primary py-2 text-sm">Explore</a>
             </div>
-            <button id="menu-btn"
-                class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <button type="button" data-rtl-toggle
+                    class="px-3 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
+                <button id="menu-btn"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -134,7 +143,7 @@
     <section class="py-24 bg-secondary/30 dark:bg-dark-card/20 border-y border-gray-100 dark:border-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 scroll-animate">
-                <span class="foundation-badge">The Experience</span>
+                <span class="foundation-badge shop-experience-badge">The Experience</span>
                 <h2 class="text-5xl font-bold mb-6">More Than a Purchase, <br> <span class="text-primary">A Moment of
                         Renewal.</span></h2>
             </div>
@@ -293,7 +302,7 @@
                         </div>
                         <!-- Repeat items for grid completeness ... 4...5...6... -->
                         <div
-                            class="group relative bg-white dark:bg-dark-card rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-700">
+                            class="group relative bg-white dark:bg-dark-card rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-700 lg:col-start-2">
                             <div class="relative h-[350px] overflow-hidden">
                                 <img src="assets/images/hero_soap_making.jpg"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">

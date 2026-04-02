@@ -53,29 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // RTL Toggle
-    const rtlToggle = document.getElementById('rtl-toggle');
-    const rtlDot = rtlToggle ? rtlToggle.querySelector('.dot') : null;
-
-    // Check initial state
-    if (document.documentElement.getAttribute('dir') === 'rtl') {
-        rtlToggle?.classList.add('active');
-        if (rtlDot) rtlDot.style.left = '22px';
-    }
-
-    rtlToggle?.addEventListener('click', () => {
-        const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
-        if (isRTL) {
-            document.documentElement.setAttribute('dir', 'ltr');
-            rtlToggle.classList.remove('active');
-            if (rtlDot) rtlDot.style.left = '4px';
-        } else {
-            document.documentElement.setAttribute('dir', 'rtl');
-            rtlToggle.classList.add('active');
-            if (rtlDot) rtlDot.style.left = '22px';
-        }
-    });
-
     // Theme Toggle (Sidebar version)
     const sidebarThemeToggle = document.getElementById('theme-toggle-sidebar');
     sidebarThemeToggle?.addEventListener('click', () => {

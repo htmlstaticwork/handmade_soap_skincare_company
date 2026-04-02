@@ -36,6 +36,27 @@
                 transform: translateX(0);
             }
         }
+
+        [data-theme='dark'] .alchemy-badge {
+            background-color: rgba(142, 182, 155, 0.28);
+            color: #dbe8dc;
+        }
+
+        [data-theme='dark'] .pledge-badge {
+            background-color: rgba(142, 182, 155, 0.28);
+            color: #dbe8dc;
+        }
+
+        [data-theme='dark'] .origin-badge {
+            background-color: rgba(142, 182, 155, 0.28);
+            color: #dbe8dc;
+        }
+
+        @media (max-width: 1024px) {
+            .alchemy-heading {
+                text-align: left !important;
+            }
+        }
     </style>
 </head>
 
@@ -61,6 +82,9 @@
             </nav>
 
             <div class="hidden lg:flex items-center space-x-4">
+                <button type="button" data-rtl-toggle
+                    class="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
                 <button id="theme-toggle"
                     class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     title="Toggle theme">
@@ -79,13 +103,19 @@
                 <a href="shop.html" class="btn-primary py-2 text-sm">Shop Now</a>
             </div>
 
-            <button id="menu-btn"
-                class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <button type="button" data-rtl-toggle
+                    class="px-3 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
+                <button id="menu-btn"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -161,12 +191,12 @@
                                 enthusiasts globally</p>
                         </div>
 
-                        <div class="flex flex-wrap gap-4 animate-hero-reveal" style="animation-delay: 0.5s">
+                        <div class="flex flex-nowrap justify-center md:justify-center lg:justify-start gap-4 animate-hero-reveal" style="animation-delay: 0.5s">
                             <a href="shop.html"
-                                class="btn-primary px-10 py-5 rounded-full text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 transition-transform">Explore
+                                class="btn-primary flex-1 sm:flex-none sm:min-w-[230px] text-center px-6 sm:px-10 py-5 rounded-full text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 transition-transform">Explore
                                 Collection</a>
                             <a href="#story"
-                                class="px-10 py-5 rounded-full text-lg font-medium border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-dark-card transition-colors">Our
+                                class="flex-1 sm:flex-none sm:min-w-[230px] text-center px-6 sm:px-10 py-5 rounded-full text-lg font-medium border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-dark-card transition-colors">Our
                                 Story</a>
                         </div>
                     </div>
@@ -175,7 +205,7 @@
                     <div class="w-full lg:w-7/12 relative group animate-hero-reveal" style="animation-delay: 0.4s">
                         <div
                             class="relative rounded-[5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] aspect-[4/5] lg:aspect-auto lg:h-[750px]">
-                            <img src="C:\Users\admin\.gemini\antigravity\brain\a74941a6-c263-4a64-beee-2035c4175031\premium_botanical_hero_split_1774938533611.png"
+                            <img src="assets/images/hero_soap_making.jpg" alt="Handmade botanical soap display"
                                 class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
 
                             <!-- Floating Stats Card -->
@@ -208,22 +238,22 @@
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
                         <span class="text-4xl mb-6 block">🥥</span>
                         <h4 class="text-xl mb-4">Vegan-Friendly</h4>
-                        <p class="text-gray-600">No animal-derived ingredients. Always 100% plant-based.</p>
+                        <p class="text-gray-600 dark:text-gray-300">No animal-derived ingredients. Always 100% plant-based.</p>
                     </div>
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
                         <span class="text-4xl mb-6 block">♻️</span>
                         <h4 class="text-xl mb-4">Zero Waste</h4>
-                        <p class="text-gray-600">Our packaging is compostable and plastic-free.</p>
+                        <p class="text-gray-600 dark:text-gray-300">Our packaging is compostable and plastic-free.</p>
                     </div>
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
                         <span class="text-4xl mb-6 block">✋</span>
                         <h4 class="text-xl mb-4">Handcrafted</h4>
-                        <p class="text-gray-600">Small batches ensured for maximum quality control.</p>
+                        <p class="text-gray-600 dark:text-gray-300">Small batches ensured for maximum quality control.</p>
                     </div>
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
                         <span class="text-4xl mb-6 block">💧</span>
                         <h4 class="text-xl mb-4">Paraben Free</h4>
-                        <p class="text-gray-600">Pure botanicals without the harsh chemicals.</p>
+                        <p class="text-gray-600 dark:text-gray-300">Pure botanicals without the harsh chemicals.</p>
                     </div>
                 </div>
             </div>
@@ -235,8 +265,8 @@
             <div class="container mx-auto px-4">
                 <div class="flex flex-col lg:flex-row items-center gap-20">
                     <div class="w-full lg:w-1/2 scroll-animate">
-                        <span class="foundation-badge">Botanical Alchemy</span>
-                        <h2 class="text-5xl md:text-6xl font-bold mb-8">What We Keep Out <br> <span
+                        <span class="foundation-badge alchemy-badge">Botanical Alchemy</span>
+                        <h2 class="alchemy-heading text-5xl md:text-6xl font-bold mb-8">What We Keep Out <br> <span
                                 class="text-primary italic">Is As Important As What We Put In</span></h2>
                         <div class="space-y-4">
                             <div class="alchemy-list-item">
@@ -329,7 +359,7 @@
         <section class="py-32 bg-secondary/30 dark:bg-dark-card/20 overflow-hidden">
             <div class="container mx-auto px-4 text-center flex flex-col items-center">
                 <div class="mb-20 scroll-animate max-w-4xl">
-                    <span class="foundation-badge">The Pledge</span>
+                    <span class="foundation-badge pledge-badge">The Pledge</span>
                     <h2 class="pledge-manifesto animate-text-reveal scroll-animate text-5xl md:text-8xl">Built to Last,
                         <br> Not Just to Sell.
                     </h2>
@@ -338,7 +368,7 @@
                 <div class="flex flex-col lg:flex-row items-center gap-16 text-left">
                     <div class="w-full lg:w-1/3 scroll-animate">
                         <div
-                            class="p-12 bg-white dark:bg-dark-card rounded-[3rem] shadow-xl border border-primary/5 hover:-translate-y-4 transition-all hover:bg-primary hover:text-white group">
+                            class="p-12 bg-white dark:bg-dark-card rounded-[3rem] shadow-xl border border-primary/5 hover:-translate-y-4 transition-all hover:bg-primary hover:text-white group text-center lg:text-left">
                             <span class="text-5xl block mb-8 group-hover:scale-125 transition-transform">🌍</span>
                             <h3 class="text-2xl font-bold mb-4">Zero Plastic</h3>
                             <p class="opacity-70">Completely compostable packaging, even down to the botanical ink.</p>
@@ -352,7 +382,7 @@
                     </div>
                     <div class="w-full lg:w-1/3 scroll-animate">
                         <div
-                            class="p-12 bg-white dark:bg-dark-card rounded-[3rem] shadow-xl border border-primary/5 hover:-translate-y-4 transition-all hover:bg-primary hover:text-white group">
+                            class="p-12 bg-white dark:bg-dark-card rounded-[3rem] shadow-xl border border-primary/5 hover:-translate-y-4 transition-all hover:bg-primary hover:text-white group text-center lg:text-left">
                             <span class="text-5xl block mb-8 group-hover:scale-125 transition-transform">🐇</span>
                             <h3 class="text-2xl font-bold mb-4">Cruelty Free</h3>
                             <p class="opacity-70">Tested by artisans, not animals. 100% vegan and organic.</p>
@@ -372,7 +402,7 @@
                 <div class="flex flex-col lg:flex-row items-center gap-24">
                     <!-- Left Content -->
                     <div class="w-full lg:w-1/2 scroll-animate">
-                        <span class="foundation-badge">The Origin Story</span>
+                        <span class="foundation-badge origin-badge">The Origin Story</span>
                         <h2 class="text-5xl md:text-7xl font-bold mb-8 leading-[1.1]">From My Garden <br> <span
                                 class="text-primary italic">to Your Home</span></h2>
 

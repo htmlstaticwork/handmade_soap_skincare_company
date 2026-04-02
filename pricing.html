@@ -103,6 +103,9 @@
                 <a href="dashboard.html" class="hover:text-primary transition-colors font-medium">Dashboard</a>
             </nav>
             <div class="hidden lg:flex items-center space-x-4">
+                <button type="button" data-rtl-toggle
+                    class="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
                 <button id="theme-toggle"
                     class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,13 +122,19 @@
                 <a href="register.html" class="btn-secondary py-2 text-sm">Login</a>
                 <a href="shop.html" class="btn-primary py-2 text-sm">Join Club</a>
             </div>
-            <button id="menu-btn"
-                class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <button type="button" data-rtl-toggle
+                    class="px-3 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
+                <button id="menu-btn"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -171,7 +180,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-load">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 stagger-load">
                 <!-- Basic Plan -->
                 <div
                     class="bg-white dark:bg-dark-card rounded-[3rem] p-12 border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
@@ -185,14 +194,14 @@
                                 Purchase</span></li>
                         <li class="flex items-center space-x-3"><span class="text-primary">✓</span><span>Trial Size
                                 Samples</span></li>
-                        <li class="flex items-center space-x-3 text-gray-300 line-through opacity-50">
+                        <li class="flex items-center space-x-3 text-gray-500 dark:text-gray-500 line-through">
                             <span>✕</span><span>Free Shipping</span>
                         </li>
-                        <li class="flex items-center space-x-3 text-gray-300 line-through opacity-50">
+                        <li class="flex items-center space-x-3 text-gray-500 dark:text-gray-500 line-through">
                             <span>✕</span><span>Custom Scents</span>
                         </li>
                     </ul>
-                    <a href="shop.html" class="btn-secondary w-full block">Get Started</a>
+                    <a href="shop.html" class="btn-secondary pricing-plan-cta w-full block">Get Started</a>
                 </div>
 
                 <!-- Popular Plan -->
@@ -213,7 +222,7 @@
                         <li class="flex items-center space-x-3"><span>✓</span><span>Exclusive Presales</span></li>
                     </ul>
                     <a href="subscription.html"
-                        class="btn-primary w-full block text-lg py-5 shadow-lg shadow-primary/30">Join the Club</a>
+                        class="btn-primary pricing-plan-cta w-full block text-lg py-5 shadow-lg shadow-primary/30">Join the Club</a>
                 </div>
 
                 <!-- Premium Plan -->
@@ -230,7 +239,7 @@
                         <li class="flex items-center space-x-3"><span>✓</span><span>Priority Shipping</span></li>
                         <li class="flex items-center space-x-3"><span>✓</span><span>Personal Consultation</span></li>
                     </ul>
-                    <a href="subscription.html" class="btn-secondary w-full block">Go Premium</a>
+                    <a href="subscription.html" class="btn-secondary pricing-plan-cta w-full block">Go Premium</a>
                 </div>
             </div>
         </div>
@@ -240,7 +249,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex flex-col lg:flex-row items-center gap-20">
                     <div class="w-full lg:w-1/2 scroll-animate blur-reveal text-center lg:text-left">
-                        <span class="foundation-badge">The Lab</span>
+                        <span class="foundation-badge pricing-lab-badge">The Lab</span>
                         <h2 class="text-5xl md:text-7xl font-bold font-premium mb-8 uppercase leading-tight">Fair Price
                             for <br> <span class="text-primary italic">Purity.</span></h2>
                         <p class="text-xl text-gray-500 dark:text-gray-400 leading-relaxed mb-10 font-body">We don't
@@ -282,7 +291,7 @@
             class="py-32 bg-secondary/20 dark:bg-dark-card/20 border-y border-gray-100 dark:border-gray-800 relative">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-24 scroll-animate blur-reveal">
-                    <span class="foundation-badge">The Experience</span>
+                    <span class="foundation-badge pricing-experience-badge">The Experience</span>
                     <h2 class="text-5xl md:text-8xl font-bold font-premium uppercase mb-4">Your Skin's Evolution</h2>
                     <p class="text-lg text-gray-500 max-w-2xl mx-auto">Results aren't instant; they're cultivated. Here
                         is what to expect from your subscription journey.</p>
@@ -296,7 +305,7 @@
                     <div class="space-y-40">
                         <!-- Step 1 -->
                         <div class="flex flex-col md:flex-row items-center justify-between group scroll-animate">
-                            <div class="w-full md:w-[45%] text-center md:text-right blur-reveal">
+                            <div class="w-full md:w-[45%] text-center md:text-right blur-reveal scroll-animate">
                                 <h3 class="text-4xl font-bold font-premium mb-6">Month 1: The Reset</h3>
                                 <p class="text-xl text-gray-500 leading-relaxed font-body">Our cold-pressed oils strip
                                     away years of synthetic waxes, allowing your skin to breathe for the first time.</p>
@@ -318,7 +327,7 @@
                         <!-- Step 2 -->
                         <div
                             class="flex flex-col md:flex-row-reverse items-center justify-between group scroll-animate">
-                            <div class="w-full md:w-[45%] text-center md:text-left blur-reveal">
+                            <div class="w-full md:w-[45%] text-center md:text-left blur-reveal scroll-animate">
                                 <h3 class="text-4xl font-bold font-premium mb-6">Month 4: Deep Renewal</h3>
                                 <p class="text-xl text-gray-500 leading-relaxed font-body">Herbal minerals have now
                                     reached deeper layers, vastly improving elasticity and creating a resilient

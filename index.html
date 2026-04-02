@@ -59,6 +59,9 @@
             </nav>
 
             <div class="hidden lg:flex items-center space-x-4">
+                <button type="button" data-rtl-toggle
+                    class="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
                 <button id="theme-toggle"
                     class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     title="Toggle theme">
@@ -78,13 +81,19 @@
             </div>
 
             <!-- Hamburger -->
-            <button id="menu-btn"
-                class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <button type="button" data-rtl-toggle
+                    class="px-3 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
+                <button id="menu-btn"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -114,14 +123,13 @@
             <hr class="border-gray-100 dark:border-gray-800">
             <a href="register.html" class="btn-secondary text-center">Login</a>
             <a href="shop.html" class="btn-primary text-center">Shop Now</a>
-        </nav>
-        <div class="mt-auto pt-8 flex justify-center">
-            <button id="theme-toggle-mobile" class="p-4 rounded-full border border-gray-200 dark:border-gray-800"
+            <button id="theme-toggle-mobile"
+                class="w-full p-4 rounded-full border border-gray-200 dark:border-gray-800 text-center"
                 onclick="document.getElementById('theme-toggle').click()">
-                <span class="dark:hidden">🌙 Dark Mode</span>
-                <span class="hidden dark:block">☀️ Light Mode</span>
+                <span class="dark:hidden">Dark Mode</span>
+                <span class="hidden dark:block">Light Mode</span>
             </button>
-        </div>
+        </nav>
     </div>
 
     <!-- Main Content -->
@@ -176,7 +184,7 @@
                         </div>
                         <div class="p-8 text-center">
                             <h3 class="text-xl mb-2">Wild Lavender Soap</h3>
-                            <p class="text-primary font-bold mb-4">$18.00</p>
+                            <p class="text-primary dark:text-accent font-bold mb-4">$18.00</p>
                             <a href="product-details.html"
                                 class="text-sm font-semibold tracking-widest uppercase border-b-2 border-primary hover:text-primary transition-all">Quick
                                 View</a>
@@ -194,7 +202,7 @@
                         </div>
                         <div class="p-8 text-center">
                             <h3 class="text-xl mb-2">Botanical Facial Oil</h3>
-                            <p class="text-primary font-bold mb-4">$42.00</p>
+                            <p class="text-primary dark:text-accent font-bold mb-4">$42.00</p>
                             <a href="product-details.html"
                                 class="text-sm font-semibold tracking-widest uppercase border-b-2 border-primary hover:text-primary transition-all">Quick
                                 View</a>
@@ -212,7 +220,7 @@
                         </div>
                         <div class="p-8 text-center">
                             <h3 class="text-xl mb-2">Honey & Oat Lather</h3>
-                            <p class="text-primary font-bold mb-4">$15.00</p>
+                            <p class="text-primary dark:text-accent font-bold mb-4">$15.00</p>
                             <a href="product-details.html"
                                 class="text-sm font-semibold tracking-widest uppercase border-b-2 border-primary hover:text-primary transition-all">Quick
                                 View</a>
@@ -322,7 +330,7 @@
                                 class="hidden lg:block w-4 h-4 rounded-full bg-primary relative z-10 shadow-[0_0_20px_rgba(142,182,155,0.5)]">
                             </div>
                             <div
-                                class="w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
+                                class="journey-media w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
                                 <img src="assets/images/natural_ingredients.jpg"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
                             </div>
@@ -343,7 +351,7 @@
                                 class="hidden lg:block w-4 h-4 rounded-full bg-primary relative z-10 shadow-[0_0_20px_rgba(142,182,155,0.5)]">
                             </div>
                             <div
-                                class="w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
+                                class="journey-media w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
                                 <img src="assets/images/hero_soap_making.jpg"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
                             </div>
@@ -364,7 +372,7 @@
                                 class="hidden lg:block w-4 h-4 rounded-full bg-primary relative z-10 shadow-[0_0_20px_rgba(142,182,155,0.5)]">
                             </div>
                             <div
-                                class="w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
+                                class="journey-media w-full lg:w-[45%] h-64 rounded-[2.5rem] overflow-hidden shadow-2xl mt-8 lg:mt-0 scroll-animate">
                                 <img src="assets/images/skincare_oils.jpg"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
                             </div>
@@ -437,7 +445,7 @@
                     </div>
                 </div>
 
-                <div class="text-center md:text-left">
+                <div class="text-center lg:text-left">
                     <h4 class="font-premium font-bold uppercase mb-8 text-primary">Quick Links</h4>
                     <ul class="space-y-4">
                         <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
@@ -448,7 +456,7 @@
                     </ul>
                 </div>
 
-                <div class="text-center md:text-left">
+                <div class="text-center lg:text-left">
                     <h4 class="font-premium font-bold uppercase mb-8 text-primary">Categories</h4>
                     <ul class="space-y-4">
                         <li><a href="shop.html" class="hover:text-primary transition-colors">Artisan Soaps</a></li>

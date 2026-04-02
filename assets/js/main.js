@@ -1,6 +1,7 @@
 // Theme Toggle Logic
 const themeToggle = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
+const rtlToggles = document.querySelectorAll('[data-rtl-toggle]');
 
 // Function to setTheme
 function setTheme(theme) {
@@ -27,6 +28,38 @@ if (themeToggle) {
         setTheme(currentTheme);
     });
 }
+
+function syncRtlToggles() {
+    const isRTL = htmlElement.getAttribute('dir') === 'rtl';
+
+    rtlToggles.forEach(toggle => {
+        const dot = toggle.querySelector('.dot');
+        toggle.setAttribute('aria-pressed', String(isRTL));
+
+        if (dot) {
+            toggle.classList.toggle('active', isRTL);
+            dot.style.left = isRTL ? '22px' : '4px';
+        } else {
+            toggle.classList.toggle('rtl-toggle-active', isRTL);
+        }
+    });
+}
+
+function setDirection(direction) {
+    htmlElement.setAttribute('dir', direction === 'rtl' ? 'rtl' : 'ltr');
+    localStorage.setItem('direction', htmlElement.getAttribute('dir'));
+    syncRtlToggles();
+}
+
+const savedDirection = localStorage.getItem('direction');
+setDirection(savedDirection === 'rtl' ? 'rtl' : 'ltr');
+
+rtlToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const nextDirection = htmlElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+        setDirection(nextDirection);
+    });
+});
 
 // Mobile Navbar Logic
 const menuBtn = document.getElementById('menu-btn');

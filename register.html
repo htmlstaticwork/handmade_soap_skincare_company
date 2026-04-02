@@ -64,7 +64,11 @@
     class="auth-bg min-h-screen flex items-start justify-center p-4 py-12 transition-colors duration-500 overflow-y-auto">
 
     <!-- Toggle Theme (Shared) -->
-    <div class="fixed top-4 right-4 z-50">
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-3">
+        <button type="button" data-rtl-toggle
+            class="px-4 py-3 rounded-full border border-white/50 bg-white/90 text-xs font-bold uppercase tracking-widest text-primary shadow-lg backdrop-blur-md transition-colors hover:bg-white">
+            RTL
+        </button>
         <button id="theme-toggle"
             class="p-3 bg-white dark:bg-dark-bg/50 backdrop-blur-md rounded-full shadow-lg hover:scale-110 transition-transform">
             <span class="dark:hidden">🌙</span>
@@ -113,6 +117,14 @@
                     class="w-full bg-white/50 dark:bg-black/20 p-4 rounded-2xl outline-none border-2 border-transparent focus:border-primary transition-all text-sm">
                 <button type="button"
                     class="absolute right-5 bottom-4 text-gray-400 hover:text-primary transition-colors">👁️</button>
+            </div>
+
+            <div class="space-y-1 relative">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-primary ml-2">Confirm Password</label>
+                <input type="password" placeholder=""
+                    class="w-full bg-white/50 dark:bg-black/20 p-4 rounded-2xl outline-none border-2 border-transparent focus:border-primary transition-all text-sm">
+                <button type="button"
+                    class="absolute right-5 bottom-4 text-gray-400 hover:text-primary transition-colors">&#128065;&#65039;</button>
             </div>
 
             <div class="flex items-start space-x-3 px-2 text-xs">

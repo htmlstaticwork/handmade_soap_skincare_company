@@ -122,6 +122,9 @@
                 <a href="dashboard.html" class="hover:text-primary transition-colors font-medium">Dashboard</a>
             </nav>
             <div class="hidden lg:flex items-center space-x-4">
+                <button type="button" data-rtl-toggle
+                    class="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
                 <button id="theme-toggle"
                     class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,13 +141,19 @@
                 <a href="register.html" class="btn-secondary py-2 text-sm">Login</a>
                 <a href="shop.html" class="btn-primary py-2 text-sm">Join Club</a>
             </div>
-            <button id="menu-btn"
-                class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <button type="button" data-rtl-toggle
+                    class="px-3 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    title="Toggle RTL layout">RTL</button>
+                <button id="menu-btn"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -262,7 +271,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 font-body mb-32">
                 <!-- Blog Post 1 -->
                 <article
-                    class="blog-card bg-white dark:bg-dark-card rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700">
+                    class="blog-card bg-white dark:bg-dark-card rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700 h-full flex flex-col">
                     <div class="relative h-64 overflow-hidden">
                         <img src="assets/images/natural_ingredients.jpg"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
@@ -272,7 +281,7 @@
                             <span class="text-xs uppercase text-gray-400 font-bold">Mar</span>
                         </div>
                     </div>
-                    <div class="p-10">
+                    <div class="p-10 flex flex-col flex-1">
                         <span
                             class="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">Sustainability</span>
                         <h3
@@ -282,7 +291,7 @@
                         <p class="text-gray-500 mb-8 line-clamp-2">Wait 42 days for every bar to cure. Learn why
                             patience is the secret ingredient in quality skincare.</p>
                         <a href="#"
-                            class="font-bold flex items-center space-x-2 border-b-2 border-primary w-fit hover:translate-x-2 transition-transform">
+                            class="font-bold flex items-center space-x-2 border-b-2 border-primary w-fit hover:translate-x-2 transition-transform mt-auto">
                             <span>Read Story</span><span>→</span>
                         </a>
                     </div>
@@ -290,7 +299,7 @@
 
                 <!-- Blog Post 2 -->
                 <article
-                    class="blog-card bg-white dark:bg-dark-card rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700"
+                    class="blog-card bg-white dark:bg-dark-card rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700 h-full flex flex-col"
                     style="transition-delay: 0.1s">
                     <div class="relative h-64 overflow-hidden">
                         <img src="assets/images/hero_soap_making.jpg"
@@ -301,7 +310,7 @@
                             <span class="text-xs uppercase text-gray-400 font-bold">Mar</span>
                         </div>
                     </div>
-                    <div class="p-10">
+                    <div class="p-10 flex flex-col flex-1">
                         <span class="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">Rituals</span>
                         <h3
                             class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight font-premium uppercase text-gray-800 dark:text-white">
@@ -309,7 +318,7 @@
                         <p class="text-gray-500 mb-8 line-clamp-2">Discover the 5-step ritual for deep nourishment and
                             overnight skin repair using wild-harvested oils.</p>
                         <a href="#"
-                            class="font-bold flex items-center space-x-2 border-b-2 border-primary w-fit hover:translate-x-2 transition-transform">
+                            class="font-bold flex items-center space-x-2 border-b-2 border-primary w-fit hover:translate-x-2 transition-transform mt-auto">
                             <span>Read Story</span><span>→</span>
                         </a>
                     </div>
@@ -317,7 +326,7 @@
 
                 <!-- Blog Post 3 -->
                 <article
-                    class="blog-card bg-white dark:bg-dark-card rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700"
+                    class="blog-card bg-white dark:bg-dark-card rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700 h-full flex flex-col"
                     style="transition-delay: 0.2s">
                     <div class="relative h-64 overflow-hidden">
                         <img src="assets/images/skincare_oils.jpg"
@@ -328,7 +337,7 @@
                             <span class="text-xs uppercase text-gray-400 font-bold">Mar</span>
                         </div>
                     </div>
-                    <div class="p-10">
+                    <div class="p-10 flex flex-col flex-1">
                         <span
                             class="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">Ingredients</span>
                         <h3
@@ -337,7 +346,7 @@
                         <p class="text-gray-500 mb-8 line-clamp-2">Organic cold-pressed jojoba oil: the magic liquid
                             that mimics your skin's natural sebum.</p>
                         <a href="#"
-                            class="font-bold flex items-center space-x-2 border-b-2 border-primary w-fit hover:translate-x-2 transition-transform">
+                            class="font-bold flex items-center space-x-2 border-b-2 border-primary w-fit hover:translate-x-2 transition-transform mt-auto">
                             <span>Read Story</span><span>→</span>
                         </a>
                     </div>
@@ -401,10 +410,10 @@
 
             <div class="container mx-auto px-4 relative z-10 text-center text-white">
                 <div class="max-w-4xl mx-auto scroll-animate">
-                    <span class="text-primary font-bold uppercase tracking-[0.4em] mb-6 block drop-shadow-lg">Slow
+                    <span class="apothecary-kicker font-bold uppercase tracking-[0.4em] mb-6 block drop-shadow-lg">Slow
                         Maceration</span>
                     <h2 class="text-5xl md:text-8xl font-bold font-premium mb-12 drop-shadow-2xl">The Apothecary <br>
-                        <span class="italic text-primary/80 opacity-90">Deep Dive</span>
+                        <span class="apothecary-highlight italic">Deep Dive</span>
                     </h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 font-body text-left">
