@@ -122,8 +122,14 @@ h6 {
     /* Keep footer section headings readable against the dark footer background. */
     .dark footer h4.text-primary,
     [data-theme='dark'] footer h4.text-primary {
-        color: #8EB69B;
+        color: #ffffff;
     }
+}
+
+/* Enforce dark-mode footer heading contrast across pages (outside layers for priority). */
+.dark footer h4.text-primary,
+[data-theme='dark'] footer h4.text-primary {
+    color: #ffffff !important;
 }
 
 /* Custom Global Animations */
@@ -254,22 +260,59 @@ h6 {
 }
 
 .rtl-toggle-active {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    color: white;
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white !important;
 }
 
 .rtl-toggle-active.text-primary {
-    color: white;
+    color: white !important;
 }
 
 .rtl-toggle-active:hover {
-    background-color: var(--primary);
-    color: white;
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white !important;
 }
 
 .rtl-toggle-active.text-primary:hover {
-    color: white;
+    color: white !important;
+}
+
+/* Keep header menu spacing correct in RTL mode (prevents overlap after RTL toggle). */
+[dir='rtl'] header .space-x-2,
+[dir='rtl'] header .space-x-4,
+[dir='rtl'] header .space-x-8 {
+    --tw-space-x-reverse: 1;
+}
+
+/* Improve dark-mode contrast for header RTL/Login controls only */
+.dark [data-rtl-toggle]:not(.rtl-toggle-active),
+[data-theme='dark'] [data-rtl-toggle]:not(.rtl-toggle-active) {
+    color: #d9ebc7;
+    border-color: rgba(142, 182, 155, 0.6);
+    background-color: rgba(142, 182, 155, 0.14);
+}
+
+.dark [data-rtl-toggle]:not(.rtl-toggle-active):hover,
+[data-theme='dark'] [data-rtl-toggle]:not(.rtl-toggle-active):hover {
+    color: #eef8e4;
+    border-color: rgba(142, 182, 155, 0.75);
+    background-color: rgba(142, 182, 155, 0.24);
+}
+
+.dark a.btn-secondary[href='register.html'],
+[data-theme='dark'] a.btn-secondary[href='register.html'] {
+    color: #d9ebc7;
+    border-color: rgba(142, 182, 155, 0.65);
+    background-color: rgba(142, 182, 155, 0.12);
+}
+
+.dark a.btn-secondary[href='register.html']:hover,
+[data-theme='dark'] a.btn-secondary[href='register.html']:hover {
+    color: #0f1811;
+    border-color: rgba(142, 182, 155, 0.95);
+    background-color: rgba(142, 182, 155, 0.95);
 }
 
 /* Navbar Drawer */

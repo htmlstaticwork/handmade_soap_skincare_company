@@ -12,6 +12,7 @@
         tailwind.config = {
             darkMode: 'class',
             theme: {
+                screens: { sm: '640px', md: '768px', lg: '1025px', xl: '1280px', '2xl': '1536px' },
                 extend: {
                     colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#101010', card: 'rgba(30,30,30,0.7)', text: '#F5F5F5' } },
                     fontFamily: { premium: ['Playfair Display', 'serif'], body: ['Outfit', 'sans-serif'] }
@@ -126,7 +127,7 @@
                     <div class="w-full border-t border-gray-200/50 dark:border-white/10"></div>
                 </div>
                 <span
-                    class="relative bg-transparent px-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Or
+                    class="relative bg-transparent px-4 text-[10px] font-bold text-gray-700 dark:text-gray-200 uppercase tracking-widest">Or
                     Continue With</span>
             </div>
 
@@ -167,8 +168,8 @@
             </div>
         </form>
 
-        <p class="mt-12 text-center text-gray-500 font-medium">
-            New here? <a href="register.html" class="text-primary font-bold hover:underline">Start your ritual</a>
+        <p class="mt-12 text-center text-gray-700 dark:text-gray-200 font-semibold">
+            New here? <a href="register.html" class="text-primary dark:text-[#d9ebc7] font-bold hover:underline">Start your ritual</a>
         </p>
     </div>
 
@@ -177,3 +178,4 @@
 </body>
 
 </html>
+

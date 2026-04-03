@@ -12,6 +12,7 @@
         tailwind.config = {
             darkMode: 'class',
             theme: {
+                screens: { sm: '640px', md: '768px', lg: '1025px', xl: '1280px', '2xl': '1536px' },
                 extend: {
                     colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#121212', card: '#1E1E1E', text: '#F5F5F5' } },
                     fontFamily: { premium: ['Playfair Display', 'serif'], body: ['Outfit', 'sans-serif'] }
@@ -330,7 +331,6 @@
                                     class="rounded-[3rem] shadow-2xl group-hover:scale-105 transition-transform duration-1000">
                                 <div
                                     class="absolute -bottom-6 -right-6 bg-white dark:bg-dark-card p-6 rounded-2xl shadow-xl border border-primary/10 hidden md:block">
-                                    <span class="text-primary font-bold">✨ Initial Glow</span>
                                 </div>
                             </div>
                         </div>
@@ -352,7 +352,6 @@
                                     class="rounded-[3rem] shadow-2xl group-hover:scale-105 transition-transform duration-1000">
                                 <div
                                     class="absolute -bottom-6 -left-6 bg-white dark:bg-dark-card p-6 rounded-2xl shadow-xl border border-primary/10 hidden md:block">
-                                    <span class="text-primary font-bold">🌿 Barrier Restore</span>
                                 </div>
                             </div>
                         </div>
@@ -509,3 +508,4 @@
 </body>
 
 </html>
+

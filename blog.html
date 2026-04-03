@@ -13,6 +13,7 @@
         tailwind.config = {
             darkMode: 'class',
             theme: {
+                screens: { sm: '640px', md: '768px', lg: '1025px', xl: '1280px', '2xl': '1536px' },
                 extend: {
                     colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#121212', card: '#1E1E1E', text: '#F5F5F5' } },
                     fontFamily: { premium: ['Playfair Display', 'serif'], body: ['Outfit', 'sans-serif'] }
@@ -190,69 +191,17 @@
             </button>
         </nav>
     </div>
-
-    <!-- UNIQUE HERO SECTION: THE BOTANICAL JOURNAL -->
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary dark:bg-dark-bg">
-        <!-- Background Splatter elements -->
-        <div
-            class="absolute top-1/4 right-0 w-[50vw] h-[60vh] bg-white dark:bg-dark-card rounded-l-[10rem] hero-split-left opacity-30 blur-3xl">
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <!-- Text Column -->
-                <div class="w-full lg:w-1/2 text-center lg:text-left">
-                    <div class="space-y-8 letter-stagger flex flex-col items-center lg:items-start">
-                        <span
-                            class="inline-block px-4 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-[#dbe8dc] rounded-full text-xs font-bold tracking-widest uppercase mb-4"
-                            style="animation-delay: 0.1s">Botanical Journals</span>
-                        <h1
-                            class="text-7xl md:text-9xl font-bold font-premium leading-[1] text-gray-800 dark:text-white">
-                            <span style="animation-delay: 0.2s">S</span><span
-                                style="animation-delay: 0.3s">l</span><span style="animation-delay: 0.4s">o</span><span
-                                style="animation-delay: 0.5s">w</span>
-                            <br>
-                            <span class="text-primary italic opacity-90 drop-shadow-sm"
-                                style="animation-delay: 0.6s">Rituals</span>
-                        </h1>
-                        <p class="text-xl text-gray-500 max-w-lg font-body leading-relaxed"
-                            style="animation-delay: 0.8s">
-                            A curation of seasonal wisdom, formulation deep-dives, and community stories from the heart
-                            of our artisan laboratory.
-                        </p>
-                        <div class="flex items-center gap-10 mt-12" style="animation-delay: 1s">
-                            <div class="flex -space-x-4">
-                                <img src="https://i.pravatar.cc/100?img=11" alt="Subscriber avatar"
-                                    onerror="this.onerror=null;this.src='assets/images/artisan_sarah_profile.png';"
-                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg object-cover">
-                                <img src="https://i.pravatar.cc/100?img=12" alt="Subscriber avatar"
-                                    onerror="this.onerror=null;this.src='assets/images/artisan_sarah_profile.png';"
-                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg object-cover">
-                                <img src="assets/images/artisan_sarah_profile.png" alt="Subscriber avatar"
-                                    class="w-12 h-12 rounded-full border-4 border-secondary shadow-lg object-cover">
-                            </div>
-                            <p class="text-sm font-bold uppercase tracking-widest text-primary font-body">Subscribers
-                                reading today</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Visual Column -->
-                <div class="w-full lg:w-1/2 relative group">
-                    <div
-                        class="relative rounded-[4rem] overflow-hidden aspect-[4/5] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)]">
-                        <img src="assets/images/traditional_oil_infusion_apothecary.png"
-                            class="w-full h-full object-cover grayscale transition-all duration-[2s] group-hover:grayscale-0 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent mix-blend-overlay">
-                        </div>
-                    </div>
-
-
-                    <!-- Botanical silhouettes -->
-                    <div
-                        class="absolute -bottom-20 -left-20 text-[15rem] opacity-5 dark:opacity-10 pointer-events-none botanical-float-slow">
-                        🌿</div>
-                </div>
+    <!-- Blog Hero -->
+    <section class="pt-32 pb-20 bg-secondary dark:bg-dark-bg overflow-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto scroll-animate">
+                <span
+                    class="inline-block px-4 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-[#dbe8dc] rounded-full text-xs font-bold tracking-widest uppercase mb-6">Botanical
+                    Journals</span>
+                <h1 class="text-6xl md:text-8xl font-bold font-premium mb-6">Slow <span
+                        class="text-primary italic">Rituals</span></h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400 font-body">A curation of seasonal wisdom,
+                    formulation deep-dives, and community stories from the heart of our artisan laboratory.</p>
             </div>
         </div>
     </section>
@@ -613,3 +562,5 @@
 </body>
 
 </html>
+
+

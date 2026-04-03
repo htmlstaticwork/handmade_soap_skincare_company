@@ -13,6 +13,7 @@
         tailwind.config = {
             darkMode: 'class',
             theme: {
+                screens: { sm: '640px', md: '768px', lg: '1025px', xl: '1280px', '2xl': '1536px' },
                 extend: {
                     colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#121212', card: '#1E1E1E', text: '#F5F5F5' } },
                     fontFamily: { premium: ['Playfair Display', 'serif'], body: ['Outfit', 'sans-serif'] }
@@ -226,7 +227,7 @@
                                         🌿</div>
                                     <span class="text-4xl font-bold">100%</span>
                                 </div>
-                                <p class="text-sm font-medium opacity-80 uppercase tracking-widest text-primary italic">
+                                <p class="text-sm font-medium uppercase tracking-widest text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)] italic">
                                     Wild Harvested Ingredients</p>
                             </div>
                         </div>
@@ -245,24 +246,28 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
-                        <span class="text-4xl mb-6 block">🥥</span>
+                        <img src="assets/images/natural_ingredients.jpg" alt="Vegan ingredients"
+                            class="w-16 h-16 rounded-full object-cover mx-auto mb-6">
                         <h4 class="text-xl mb-4">Vegan-Friendly</h4>
                         <p class="text-gray-600 dark:text-gray-300">No animal-derived ingredients. Always 100%
                             plant-based.</p>
                     </div>
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
-                        <span class="text-4xl mb-6 block">♻️</span>
+                        <img src="assets/images/sustainable_packaging_artisan.png" alt="Sustainable packaging"
+                            class="w-16 h-16 rounded-full object-cover mx-auto mb-6">
                         <h4 class="text-xl mb-4">Zero Waste</h4>
                         <p class="text-gray-600 dark:text-gray-300">Our packaging is compostable and plastic-free.</p>
                     </div>
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
-                        <span class="text-4xl mb-6 block">✋</span>
+                        <img src="assets/images/hero_soap_making.jpg" alt="Handcrafted soap making"
+                            class="w-16 h-16 rounded-full object-cover mx-auto mb-6">
                         <h4 class="text-xl mb-4">Handcrafted</h4>
                         <p class="text-gray-600 dark:text-gray-300">Small batches ensured for maximum quality control.
                         </p>
                     </div>
                     <div class="bg-secondary/30 dark:bg-dark-card p-10 rounded-3xl text-center scroll-animate">
-                        <span class="text-4xl mb-6 block">💧</span>
+                        <img src="assets/images/skincare_oils.jpg" alt="Paraben-free skincare"
+                            class="w-16 h-16 rounded-full object-cover mx-auto mb-6">
                         <h4 class="text-xl mb-4">Paraben Free</h4>
                         <p class="text-gray-600 dark:text-gray-300">Pure botanicals without the harsh chemicals.</p>
                     </div>
@@ -549,3 +554,5 @@
 </body>
 
 </html>
+
+
