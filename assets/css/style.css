@@ -46,6 +46,23 @@ h6 {
     }
 }
 
+/* Footer Categories alignment by viewport */
+@media (min-width: 768px) and (max-width: 1024px) {
+    footer .footer-categories,
+    footer .footer-categories h4,
+    footer .footer-categories ul {
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 767px) {
+    footer .footer-categories,
+    footer .footer-categories h4,
+    footer .footer-categories ul {
+        text-align: center !important;
+    }
+}
+
 /* Custom Spacing */
 .mt-8px {
     margin-top: 8px;
