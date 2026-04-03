@@ -173,23 +173,26 @@
         </nav>
     </div>
 
-    <main class="pt-32 pb-20 overflow-x-hidden">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-3xl mx-auto mb-20 blur-reveal scroll-animate">
-                <h1 class="text-6xl md:text-8xl font-bold font-premium mb-6">Invest in Your <span
-                        class="text-primary italic">Skin Ritual.</span></h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400 font-body">Pure, organic, and crafted with conscious
-                    intention. Choose the plan that suits your lifestyle.</p>
-
-                <div
-                    class="flex items-center justify-center space-x-4 mt-12 bg-secondary dark:bg-dark-card w-fit mx-auto p-2 rounded-full border border-gray-100 dark:border-gray-800">
-                    <button id="monthly-btn"
-                        class="bg-white dark:bg-dark-bg px-8 py-3 rounded-full font-bold shadow-sm transition-all"
-                        onclick="toggleBilling('monthly')">Monthly</button>
-                    <button id="yearly-btn"
-                        class="px-8 py-3 rounded-full font-bold text-gray-400 dark:text-gray-500 hover:text-gray-800 transition-all"
-                        onclick="toggleBilling('yearly')">Yearly (Save 20%)</button>
+    <main class="overflow-x-hidden">
+        <section class="pt-32 pb-20 bg-secondary dark:bg-dark-bg overflow-hidden">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto scroll-animate">
+                    <h1 class="text-6xl md:text-8xl font-bold font-premium mb-6">Invest in Your Skin Ritual.</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 font-body">Pure, organic, and crafted with
+                        conscious intention. Choose the plan that suits your lifestyle.</p>
                 </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 text-center pt-10">
+            <div
+                class="flex items-center justify-center space-x-4 mb-20 bg-secondary dark:bg-dark-card w-fit mx-auto p-2 rounded-full border border-gray-100 dark:border-gray-800">
+                <button id="monthly-btn"
+                    class="bg-white dark:bg-dark-bg px-8 py-3 rounded-full font-bold shadow-sm transition-all"
+                    onclick="toggleBilling('monthly')">Monthly</button>
+                <button id="yearly-btn"
+                    class="px-8 py-3 rounded-full font-bold text-gray-400 dark:text-gray-500 hover:text-gray-800 transition-all"
+                    onclick="toggleBilling('yearly')">Yearly (Save 20%)</button>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 stagger-load">
