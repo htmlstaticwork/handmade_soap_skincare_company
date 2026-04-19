@@ -15,7 +15,7 @@
                 screens: { sm: '640px', md: '768px', lg: '1025px', xl: '1280px', '2xl': '1536px' },
                 extend: {
                     colors: { primary: '#3A4D39', secondary: '#FAF5EF', accent: '#A47E3B', dark: { bg: '#121212', card: '#1E1E1E', text: '#F5F5F5' } },
-                    fontFamily: { Playfair Display: ['Playfair Display', 'sans-serif'], Outfit: ['Outfit', 'sans-serif'] }
+                    fontFamily: { 'Playfair Display': ['Playfair Display', 'sans-serif'], Outfit: ['Outfit', 'sans-serif'] }
                 }
             }
         }
@@ -36,7 +36,7 @@
         }
 
         .step-pill.active {
-            background-color: var(--primary-color, #3A4D39);
+            background-color: var(--primary);
             color: white;
             transform: scale(1.1);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -53,8 +53,15 @@
             class="absolute right-4 top-1/2 -translate-y-1/2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             title="Toggle RTL layout">RTL</button>
         <a href="index.html" class="flex items-center justify-center space-x-2">
-            <span class="text-primary text-4xl">🌱</span>
-            <span class="font-premium font-bold text-3xl tracking-tight uppercase text-gray-800 dark:text-white">Handmade
+            <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8-.5 2.5-1.7 4.5-4 6-2.3 1.5-3 2.5-5 4Z" />
+                <path d="M11 20a7 7 0 0 1-7-7c0-2.3 1-4.3 2.8-5.6" />
+                <path d="m19 2-8 18" />
+            </svg>
+            <span
+                class="font-premium font-bold text-3xl tracking-tight uppercase text-gray-800 dark:text-white">Handmade
                 Soap</span>
         </a>
     </header>
@@ -89,7 +96,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="bg-white dark:bg-dark-bg p-10 rounded-[2.5rem] border-4 border-transparent hover:border-primary cursor-poOutfit transition-all hover:scale-105 group"
                             onclick="nextStep(2)">
-                            <span class="text-4xl mb-6 block">🧼</span>
+                            <span class="block mb-6 text-primary">
+                                <svg class="w-10 h-10 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="10" rx="2" ry="2" />
+                                    <path d="M6 10h12" />
+                                </svg>
+                            </span>
                             <h3 class="text-2xl font-bold mb-4">Essential Pack</h3>
                             <p class="text-gray-500 text-sm mb-6">3 Artisan Soap Bars <br> + Surprise Botanical Sample
                             </p>
@@ -103,7 +116,13 @@
                             <div
                                 class="absolute top-0 right-0 bg-accent text-white px-8 py-2 rotate-45 translate-x-8 translate-y-2 text-xs font-bold uppercase">
                                 Popular</div>
-                            <span class="text-4xl mb-6 block">🧴</span>
+                            <span class="block mb-6 text-primary">
+                                <svg class="w-10 h-10 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M10 2h4l1 4h-6z" />
+                                    <path d="M7 6h10v14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z" />
+                                </svg>
+                            </span>
                             <h3 class="text-2xl font-bold mb-4">Full Glow Bundle</h3>
                             <p class="text-gray-500 text-sm mb-6">2 Soap Bars + 1 Face Oil <br> + FREE Bamboo Soap Dish
                             </p>
@@ -149,7 +168,12 @@
                     <div class="text-center">
                         <div
                             class="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center text-5xl mx-auto mb-8 animate-bounce">
-                            🌿</div>
+                            <svg class="w-12 h-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <path
+                                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8-.5 2.5-1.7 4.5-4 6-2.3 1.5-3 2.5-5 4Z" />
+                            </svg>
+                        </div>
                         <h2 class="text-4xl font-bold mb-4">Complete Your Journey</h2>
                         <p class="text-gray-500 mb-12">Your skin will thank you. Welcome to the club.</p>
 
@@ -182,7 +206,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 stagger-load">
                 <div class="flex flex-col">
                     <div class="flex items-center space-x-2 mb-6">
-                        <span class="text-primary text-2xl">🌱</span>
+                        <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path
+                                d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8-.5 2.5-1.7 4.5-4 6-2.3 1.5-3 2.5-5 4Z" />
+                            <path d="M11 20a7 7 0 0 1-7-7c0-2.3 1-4.3 2.8-5.6" />
+                            <path d="m19 2-8 18" />
+                        </svg>
                         <span
                             class="font-premium font-bold text-xl uppercase tracking-tighter text-gray-800 dark:text-white">Handmade
                             Soap</span>
@@ -191,11 +222,31 @@
                         conscious soul. Pure, sustainable, and organic.</p>
                     <div class="flex space-x-4">
                         <a href="#"
-                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">FB</a>
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                            title="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3l-.5 3H13v6.8c4.56-.93 8-4.96 8-9.8z" />
+                            </svg>
+                        </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">IG</a>
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                            title="Instagram">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">TW</a>
+                            class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                            title="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
@@ -262,4 +313,3 @@
 </body>
 
 </html>
-

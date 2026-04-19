@@ -30,7 +30,31 @@ h4,
 h5,
 h6 {
     font-family: 'Playfair Display', serif;
-    font-weight: 800;
+    font-weight: 600 !important;
+}
+
+/* Maintain hierarchy: body text should not exceed weight 550 */
+p,
+p span,
+p strong,
+p b,
+p .font-bold {
+    font-weight: 400;
+}
+
+p strong,
+p b,
+p .font-bold,
+p.font-bold {
+    font-weight: 500 !important;
+}
+
+/* Cap all bold variations site-wide to 600 to match headings */
+.font-bold,
+.font-extrabold,
+strong,
+b {
+    font-weight: 600;
 }
 
 /* Center headings in Mobile & Tablet view */
@@ -48,6 +72,7 @@ h6 {
 
 /* Footer Categories alignment by viewport */
 @media (min-width: 768px) and (max-width: 1024px) {
+
     footer .footer-categories,
     footer .footer-categories h4,
     footer .footer-categories ul {
@@ -56,6 +81,7 @@ h6 {
 }
 
 @media (max-width: 767px) {
+
     footer .footer-categories,
     footer .footer-categories h4,
     footer .footer-categories ul {
@@ -119,17 +145,66 @@ h6 {
         color: #F5F5F5;
     }
 
-    /* Keep footer section headings readable against the dark footer background. */
+    /* Enhance gray text contrast in dark mode */
+    .dark .text-gray-700,
+    [data-theme='dark'] .text-gray-700 {
+        color: #f1f5f9 !important;
+    }
+
+    .dark .text-gray-600,
+    [data-theme='dark'] .text-gray-600 {
+        color: #e2e8f0 !important;
+    }
+
+    .dark .text-gray-500,
+    [data-theme='dark'] .text-gray-500 {
+        color: #cbd5e1 !important;
+    }
+
+    .dark .text-gray-400,
+    [data-theme='dark'] .text-gray-400 {
+        color: #f1f5f9 !important;
+    }
+
+    /* Improve primary green visibility globally in dark mode */
+    .dark .text-primary,
+    [data-theme='dark'] .text-primary,
+    .dark svg.text-primary,
+    [data-theme='dark'] svg.text-primary,
+    .dark svg[stroke="currentColor"].text-primary,
+    [data-theme='dark'] svg[stroke="currentColor"].text-primary {
+        color: #cfe0d0 !important;
+    }
+
+    .dark .text-accent,
+    [data-theme='dark'] .text-accent {
+        color: #e5c07b !important;
+    }
+
+    .dark .border-primary,
+    [data-theme='dark'] .border-primary {
+        border-color: #8EB69B !important;
+    }
+
+    /* Vibrant green for buttons in dark mode for better visibility */
+    .dark .bg-primary,
+    [data-theme='dark'] .bg-primary,
+    .dark .btn-primary,
+    [data-theme='dark'] .btn-primary {
+        background-color: #547853 !important;
+    }
+
+    /* Dark mode for footer headings */
     .dark footer h4.text-primary,
     [data-theme='dark'] footer h4.text-primary {
-        color: #ffffff;
+        color: #cfe0d0 !important;
     }
 }
 
-/* Enforce dark-mode footer heading contrast across pages (outside layers for priority). */
+/* Enforce dark-mode contrast across pages */
 .dark footer h4.text-primary,
 [data-theme='dark'] footer h4.text-primary {
-    color: #ffffff !important;
+    color: #cfe0d0 !important;
 }
 
 /* Custom Global Animations */
@@ -444,13 +519,7 @@ h6 {
     box-shadow: inset 0 0 20px rgba(142, 182, 155, 0.16);
 }
 
-.floating-leaf {
-    position: absolute;
-    font-size: 2rem;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.3;
-}
+/* Removed floating leaf styles */
 
 .apothecary-kicker {
     color: #d7e6d4;
@@ -777,21 +846,7 @@ h6 {
     animation: gardenReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.leaf-float-slow {
-    animation: leafFloat 8s ease-in-out infinite;
-}
-
-@keyframes leafFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(10deg);
-    }
-}
+/* Removed leaf float animation */
 
 /* Premium New Sections Styling */
 .alchemy-list-item {
@@ -820,30 +875,7 @@ h6 {
     background-position: center;
 }
 
-.scent-note {
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 9999px;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(142, 182, 155, 0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
-}
-
-[data-theme='dark'] .scent-note {
-    background-color: rgba(30, 30, 30, 0.8);
-}
-
-.scent-note:hover {
-    transform: scale(1.25);
-}
+/* Removed scent note styles */
 
 .pledge-manifesto {
     font-weight: 700;
@@ -908,7 +940,7 @@ h6 {
     }
 
     100% {
-        clip-path: inset(0 0 0 0);
+        clip-path: none;
         opacity: 1;
         transform: translateY(0);
     }
@@ -951,6 +983,10 @@ h6 {
 }
 
 .hero-gradient-text {
+    display: inline-block;
+    padding-right: 0.2rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
     font-weight: 700;
     letter-spacing: -0.025em;
     background: linear-gradient(135deg, #8EB69B 0%, #D4A373 100%);
