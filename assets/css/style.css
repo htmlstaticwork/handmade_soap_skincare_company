@@ -33,28 +33,39 @@ h6 {
     font-weight: 600 !important;
 }
 
-/* Maintain hierarchy: body text should not exceed weight 550 */
+/* Keep heading children aligned with heading weight cap */
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 * {
+    font-weight: inherit !important;
+}
+
+/* Maintain hierarchy: paragraph text between 400 and 550 */
 p,
-p span,
-p strong,
-p b,
-p .font-bold {
+p * {
     font-weight: 400;
 }
 
 p strong,
 p b,
+p .font-semibold,
 p .font-bold,
-p.font-bold {
-    font-weight: 500 !important;
+p .font-extrabold,
+p .font-black {
+    font-weight: 550 !important;
 }
 
-/* Cap all bold variations site-wide to 600 to match headings */
+/* Cap bold utilities site-wide to heading max */
+.font-semibold,
 .font-bold,
 .font-extrabold,
+.font-black,
 strong,
 b {
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 /* Center headings in Mobile & Tablet view */
@@ -192,6 +203,12 @@ b {
     .dark .btn-primary,
     [data-theme='dark'] .btn-primary {
         background-color: #547853 !important;
+    }
+
+    /* Keep subscription CTA text readable on white button in dark mode */
+    .dark .subscription-cta-btn.text-primary,
+    [data-theme='dark'] .subscription-cta-btn.text-primary {
+        color: #2f4930 !important;
     }
 
     /* Dark mode for footer headings */
@@ -986,7 +1003,7 @@ b {
     display: inline-block;
     padding-right: 0.2rem;
     padding-bottom: 0.5rem;
-    margin-bottom: -0.5rem;
+    margin-bottom: 0;
     font-weight: 700;
     letter-spacing: -0.025em;
     background: linear-gradient(135deg, #8EB69B 0%, #D4A373 100%);
