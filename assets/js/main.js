@@ -119,14 +119,24 @@ document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el))
 // Parallax Hero for Home (index.html)
 const parallaxContainer = document.querySelector('.parallax-container');
 if (parallaxContainer) {
-    window.addEventListener('scroll', () => {
+    const layers = parallaxContainer.querySelectorAll('.parallax-layer');
+
+    const updateParallax = () => {
         const scrollPos = window.pageYOffset;
-        const layers = document.querySelectorAll('.parallax-layer');
+        const sectionTop = parallaxContainer.offsetTop;
+        const sectionHeight = parallaxContainer.offsetHeight;
+        const localScroll = Math.min(Math.max(scrollPos - sectionTop, 0), sectionHeight);
+
         layers.forEach(layer => {
-            const speed = layer.getAttribute('data-speed');
-            layer.style.transform = `translateY(${scrollPos * speed}px)`;
+            const speed = Number(layer.getAttribute('data-speed')) || 0;
+            const scale = Number(layer.getAttribute('data-scale')) || 1;
+            layer.style.transform = `translate3d(0, ${localScroll * speed}px, 0) scale(${scale})`;
         });
-    });
+    };
+
+    updateParallax();
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', updateParallax);
 }
 
 // Staggered load for shop (stagger-load)
